@@ -1,0 +1,10 @@
+package com.zm.mi.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.service.VendorService;
+
+@Service
+public class VendorServiceImpl implements VendorService {
+
+}

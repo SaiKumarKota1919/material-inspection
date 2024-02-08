@@ -1,0 +1,17 @@
+package com.zm.mi.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
+@Data
+@Entity
+@Table(name = "mat_isp_act")
+public class InspectionActuals {
+	
+	private InspectionLot inspectionLot;
+	private MaterialCharacteristics materialCharacteristics;
+	private Float maxMeasurement;
+	private Float minMeasurement;
+	
+
+}

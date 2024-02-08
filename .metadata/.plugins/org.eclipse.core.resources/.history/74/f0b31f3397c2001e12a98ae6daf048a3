@@ -1,0 +1,9 @@
+package com.zm.mi.service;
+
+import com.zm.mi.model.Plant;
+
+public interface PlantService {
+
+	boolean isAlreadyExists(Plant plant);
+
+}

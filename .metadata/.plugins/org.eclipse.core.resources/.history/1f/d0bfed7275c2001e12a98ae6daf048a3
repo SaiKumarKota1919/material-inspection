@@ -1,0 +1,42 @@
+package com.zm.mi.model;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@NoArgsConstructor
+@Table(name = "Material")
+public class Material {
+	@Id
+	@Column(name = "mat_id",length=20)
+	private String materialId;
+	@Column(name="mat_desc")
+	private String materialDesc;
+	@Column(name = "mat_type",length =100)
+	private String materialType;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "material")
+	private List<MaterialCharacteristics> materialCharacteristics;
+	@OneToMany(mappedBy = "material")
+	private List<InspectionLot> inspectionLots;
+
+	public Material(String materialDesc, String materialType, Float materialCostPerUnit,
+			LocalDate materialExpiratioDate) {
+		super();
+		this.materialDesc = materialDesc;
+		this.materialType = materialType;
+		this.materialCostPerUnit = materialCostPerUnit;
+		this.materialExpiratioDate = materialExpiratioDate;
+	}
+
+}

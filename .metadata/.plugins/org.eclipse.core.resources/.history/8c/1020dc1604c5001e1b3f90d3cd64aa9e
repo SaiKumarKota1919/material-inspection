@@ -1,0 +1,58 @@
+package com.zm.mi.controller;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.entity.InspectionLot;
+import com.zm.mi.service.LotService;
+import com.zm.mi.service.MaterialService;
+import com.zm.mi.service.PlantService;
+import com.zm.mi.service.VendorService;
+
+@Controller
+@RequestMapping("/lot")
+public class LotController {
+	@Autowired
+	private LotService lotService;
+	@Autowired
+	private PlantService plantService;
+	@Autowired
+	private VendorService vendorService;
+	@Autowired
+	private MaterialService materialService;
+	
+	
+	@GetMapping("/form")
+	private String getLotForm(Model model)
+	{
+		model.addAttribute("plants",plantService.getAllPlants());
+		model.addAttribute("vendors",vendorService.getAllVendors());
+		model.addAttribute("materials",materialService.getAllMaterials());
+		
+		return ViewPageConstants.CREATE_LOT_FORM_PAGE;
+	}
+	
+	
+	@PostMapping("/add")
+	private String createLot(@RequestParam String plantId,@RequestParam Integer vendorId,
+							@RequestParam String materialId,@RequestParam LocalDate createdDate)
+	{
+		InspectionLot lot = new InspectionLot();
+		
+		lot.setPlant(plantService.getPlantById(plantId));
+		lot.setVendor(vendorService.getVendorById(vendorId));
+		
+		return ViewPageConstants.HOME_PAGE;
+	}
+	
+	
+
+}

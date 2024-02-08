@@ -1,0 +1,18 @@
+package com.zm.mi.model;
+
+import java.io.Serializable;
+
+public class InspectionActualsId implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private InspectionLot inspectionLot;
+	private MaterialCharacteristics materialCharacteristics;
+	
+
+
+	
+}

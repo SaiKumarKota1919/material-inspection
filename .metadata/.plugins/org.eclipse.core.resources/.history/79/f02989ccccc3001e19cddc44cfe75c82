@@ -1,0 +1,31 @@
+package com.zm.mi.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.model.Material;
+import com.zm.mi.repo.MaterialRepo;
+import com.zm.mi.service.MaterialService;
+@Service
+public class MaterialServiceImpl implements MaterialService{
+@Autowired
+private MaterialRepo materialRepo;
+	@Override
+	public void saveMaterial(Material material) {
+		materialRepo.save(material);
+		
+	}
+
+	@Override
+	public boolean isAlreadyExists(Material material) {
+		if(materialRepo.
+				findByMaterialIdOrMaterialDesc(material.StringData)==null)
+		{
+			return false;
+		}
+
+		
+		return true;
+	}
+
+}

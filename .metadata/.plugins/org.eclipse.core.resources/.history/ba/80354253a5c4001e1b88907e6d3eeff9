@@ -1,0 +1,9 @@
+package com.zm.mi.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.service.CharacteristicsService;
+@Service
+public class CharacteristicsServiceImpl implements CharacteristicsService{
+
+}

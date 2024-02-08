@@ -1,0 +1,7 @@
+package com.zm.mi.service.impl;
+
+import com.zm.mi.service.UserService;
+
+public class UserserviceImpl  implements UserService{
+
+}

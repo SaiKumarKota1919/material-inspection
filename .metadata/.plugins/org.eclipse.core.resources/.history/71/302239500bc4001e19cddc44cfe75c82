@@ -1,0 +1,66 @@
+package com.zm.mi.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.model.Material;
+import com.zm.mi.service.MaterialService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.server.PathParam;
+
+@Controller
+@RequestMapping("/material")
+public class MaterialController {
+	@Autowired
+	private MaterialService materialService;
+	private static final Logger LOGGER = LoggerFactory.getLogger(MaterialController.class);
+	
+	
+	
+
+	@PostMapping("/add")
+	public String addMaterial(@ModelAttribute Material material)
+	{
+		LOGGER.info("**** Request recieved by "+Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		if(materialService.isAlreadyExists(material))
+		{
+			LOGGER.info(" material already exists ");
+			
+			return ViewPageConstants.ADD_MATERIAL_PAGE;
+		}
+		
+		materialService.saveMaterial(material);
+		LOGGER.info(" material saved sucessfully ");
+		return ViewPageConstants.HOME_PAGE;
+	}
+	
+	@GetMapping("/search")
+	public String searchMaterial(@ModelAttribute Material material,Model model,HttpSession session)
+	{
+		
+	   List<Material> materials =	materialService.searchMaterial(material);
+	   	session.setAttribute("materials", materials);
+		return ViewPageConstants.SHOW_MATERIALS_PAGE;
+	}
+	@GetMapping("/edit/{materialId}")
+	public String updateMaterial(@PathVariable String materialId)
+	{
+		Material = materialService.getMaterialById(materialId);
+		
+		return ViewPageConstants.ADD_MATERIAL_PAGE;
+	}
+	
+}

@@ -1,0 +1,21 @@
+package com.zm.mi.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.entity.InspectionLot;
+import com.zm.mi.repo.InspectionLotRepo;
+import com.zm.mi.service.LotService;
+@Service
+public class LotServiceImpl implements LotService{
+	@Autowired
+	private InspectionLotRepo lotRepo;
+	
+	@Override
+	public void addLot(InspectionLot lot) {
+		
+		lotRepo.save(lot);
+
+	}
+
+}

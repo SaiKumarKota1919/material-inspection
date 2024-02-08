@@ -1,0 +1,45 @@
+package com.zm.mi.controller;
+
+
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.model.MaterialCharacteristics;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Controller
+@RequestMapping("/characteristics")
+public class CharacteristicsController {
+
+    // Display the form
+    @GetMapping("/form")
+    public String characteristicsForm(Model model) {
+        // Initialize a list of MaterialCharacteristics objects
+        List<MaterialCharacteristics> characteristicsList = new ArrayList<>();
+
+        // Add a default characteristic for the initial display
+        characteristicsList.add(new MaterialCharacteristics());
+
+        // Add the list to the model
+        model.addAttribute("characteristicsList", characteristicsList);
+
+        return ViewPageConstants.ADD_CHARACTER_PAGE;
+    }
+
+    // Handle form submission
+    @PostMapping("/characteristics/add")
+    public String addCharacteristics(
+            @ModelAttribute("characteristicsList") List<MaterialCharacteristics> characteristicsList,
+            Model model) {
+       
+        System.out.println(characteristicsList);
+
+        return ""; // Redirect to a result page or another view
+    }
+}

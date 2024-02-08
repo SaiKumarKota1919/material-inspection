@@ -1,0 +1,14 @@
+1707046336494	Rename resource 'material.jsp'
+1707111962997	Delete element
+1707111985927	Delete element
+1707115434273	Rename type 'ViewConstants'
+1707221635029	Rename method 'addCharacteristics'
+1707226420848	Rename package 'com.zm.mi.model'
+1707226468091	Move compilation unit
+1707226476743	Move compilation unit
+1707226484068	Move compilation unit
+1707234426120	Rename type 'InspectionController'
+1707234536113	Rename type 'InspectionService'
+1707234556545	Rename type 'InspectionServiceImpl'
+1707277916278	Move compilation unit
+1707323760365	Rename type 'InspectionActualsAndExpected'

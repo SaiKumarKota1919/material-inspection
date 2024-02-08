@@ -1,0 +1,13 @@
+package com.zm.mi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MaterialInspectionAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MaterialInspectionAppApplication.class, args);
+	}
+
+}

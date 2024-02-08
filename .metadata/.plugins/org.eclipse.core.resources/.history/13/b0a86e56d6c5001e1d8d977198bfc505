@@ -1,0 +1,20 @@
+package com.zm.mi.repo;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.aspectj.weaver.tools.Trace;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.zm.mi.entity.InspectionActuals;
+import com.zm.mi.entity.MaterialCharacteristics;
+
+public interface InspectionActualsRepo extends JpaRepository<InspectionActuals, Serializable>{
+
+	@Query(value ="select * from mat_isp_act where lot_id=:lotId" ,nativeQuery = true)
+	List<InspectionActuals> findAllByLotId(Integer lotId);
+	@Query(value ="select * from mat_isp_act where ch_id in(:materialCharacteristics)" ,nativeQuery = true)
+	List<InspectionActuals> findAllByMaterialCharacteristics(List<MaterialCharacteristics> materialCharacteristics);
+	
+}

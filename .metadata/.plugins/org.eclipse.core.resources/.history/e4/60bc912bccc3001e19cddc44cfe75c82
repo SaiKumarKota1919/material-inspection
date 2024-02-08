@@ -1,0 +1,14 @@
+package com.zm.mi.service.impl;
+
+import com.zm.mi.model.Material;
+import com.zm.mi.service.MaterialService;
+
+public class MaterialServiceImpl implements MaterialService{
+
+	@Override
+	public void saveMaterial(Material material) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

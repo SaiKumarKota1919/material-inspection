@@ -1,0 +1,42 @@
+package com.zm.mi.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.model.MaterialCharacteristics;
+import com.zm.mi.repo.MaterialCharRepo;
+import com.zm.mi.service.CharacteristicsService;
+@Service
+public class CharacteristicsServiceImpl implements CharacteristicsService{
+@Autowired
+private MaterialCharRepo materialCharRepo;
+	@Override
+	public void addCharacteristics(List<MaterialCharacteristics> characteristicsList) {
+		
+		System.out.println("inside characteristics service "+characteristicsList);
+		if(characteristicsList.size()==1)
+		{
+			materialCharRepo.save(characteristicsList.get(0));
+		}
+		else {
+			materialCharRepo.saveAll(characteristicsList);
+		}
+		
+		
+		System.out.println("after characteristics service "+characteristicsList);
+		
+	}
+	@Override
+	public MaterialCharacteristics getCharacterByid(Integer characterId) {
+	    Optional<MaterialCharacteristics> character	= materialCharRepo.findById(characterId);
+	    if(character.isPresent())
+	    {
+	    	return character.get();
+	    }
+		return null;
+	}
+
+}

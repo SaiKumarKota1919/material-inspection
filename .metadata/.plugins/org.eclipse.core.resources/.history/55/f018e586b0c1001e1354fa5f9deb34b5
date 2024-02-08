@@ -1,0 +1,21 @@
+package com.zm.mi;
+
+import java.util.Arrays;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.zm.mi.model.Plant;
+import com.zm.mi.service.PlantService;
+
+@SpringBootApplication
+public class MaterialInspectionApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(MaterialInspectionApplication.class, args);
+		
+	}
+	
+
+}

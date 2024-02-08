@@ -1,0 +1,8 @@
+package com.zm.mi.model;
+
+public class Vendor {
+ private int vedorId;
+ private String vendorName;
+ private String vendorLocation;
+	
+}

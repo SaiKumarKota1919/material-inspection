@@ -1,0 +1,13 @@
+public class MaterialCharacteristicsForm {
+    private List<MaterialCharacteristics> characteristicsList;
+
+    // Add default constructor and any other methods if needed
+
+    public List<MaterialCharacteristics> getCharacteristicsList() {
+        return characteristicsList;
+    }
+
+    public void setCharacteristicsList(List<MaterialCharacteristics> characteristicsList) {
+        this.characteristicsList = characteristicsList;
+    }
+}

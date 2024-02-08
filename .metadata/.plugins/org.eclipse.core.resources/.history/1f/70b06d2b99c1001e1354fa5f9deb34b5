@@ -1,0 +1,26 @@
+package com.zm.mi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.zm.mi.model.Plant;
+import com.zm.mi.service.PlantService;
+
+@SpringBootApplication
+public class MaterialInspectionApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(MaterialInspectionApplication.class, args);
+		
+		PlantService plantService = context.getBean(PlantService.class);
+		plantService.saveAllPlants(new Plant("HYD_MCHR","Infotech pharma","Hyderabad","TS"),
+									new Plant("HYD_MCHR","Infotech pharma","Hyderabad","TS"),
+									new Plant("HYD_MCHR","Infotech pharma","Hyderabad","TS"),
+									new Plant("HYD_MCHR","Infotech pharma","Hyderabad","TS"),
+									new Plant("HYD_MCHR","Infotech pharma","Hyderabad","TS"));
+)
+	}
+	
+
+}

@@ -1,0 +1,26 @@
+package com.zm.mi.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.service.LotService;
+
+@Controller
+@RequestMapping("/lot")
+public class LotController {
+	@Autowired
+	private LotService lotService;
+	
+	@GetMapping("/form")
+	private String getLotForm(Model model)
+	{
+		return ViewPageConstants.CREATE_LOT_FORM_PAGE;
+	}
+	
+	
+
+}

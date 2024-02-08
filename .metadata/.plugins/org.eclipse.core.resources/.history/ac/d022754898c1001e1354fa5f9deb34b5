@@ -1,0 +1,16 @@
+package com.zm.mi.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Data
+@Entity
+public class Plant {
+	
+	@Id
+	private String plantId;
+	private String plantName;
+	private String plantLocation;
+
+}

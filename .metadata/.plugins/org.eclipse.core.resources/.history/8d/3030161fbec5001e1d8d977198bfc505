@@ -1,0 +1,9 @@
+package com.zm.mi.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.service.InspectionActualsService;
+@Service
+public class InspectionActualsServiceImpl implements InspectionActualsService {
+
+}

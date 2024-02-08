@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: Sai1919@
+    url: jdbc:postgresql://localhost:5433/material_inspection
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mvc:
+    view:
+      prefix: /jsp/
+      suffix: .jsp
+logging:
+  file:
+    name: logs/phonebook_logs.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n" 
+    #file: "%d %-5level [%thread] %logger : %msg%n"   
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"  
+  level:
+    ROOT: INFO

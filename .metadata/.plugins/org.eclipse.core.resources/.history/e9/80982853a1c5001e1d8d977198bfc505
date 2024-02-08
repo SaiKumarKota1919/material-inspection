@@ -1,0 +1,37 @@
+package com.zm.mi.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.entity.InspectionLot;
+import com.zm.mi.repo.InspectionLotRepo;
+import com.zm.mi.serachcriteria.LotSearchCriteria;
+import com.zm.mi.service.LotService;
+@Service
+public class LotServiceImpl implements LotService{
+	@Autowired
+	private InspectionLotRepo lotRepo;
+	
+	@Override
+	public void addLot(InspectionLot lot) {
+		
+		lotRepo.save(lot);
+
+	}
+
+	@Override
+	public List<InspectionLot> getLotsByLotSearchCriteria(LotSearchCriteria lotSearchCriteria) {
+		
+		lotRepo.findAllByCreatedOnBetween(lotSearchCriteria.getFromDate(), lotSearchCriteria.getToDate());
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+
+}

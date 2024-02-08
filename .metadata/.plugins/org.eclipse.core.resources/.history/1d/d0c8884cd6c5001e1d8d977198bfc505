@@ -1,0 +1,42 @@
+package com.zm.mi.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.entity.InspectionActuals;
+import com.zm.mi.entity.MaterialCharacteristics;
+import com.zm.mi.repo.InspectionActualsRepo;
+import com.zm.mi.service.InspectionActualsService;
+@Service
+public class InspectionActualsServiceImpl implements InspectionActualsService {
+@Autowired
+private InspectionActualsRepo inspectionActualsRepo;
+	@Override
+	public void addActuals(InspectionActuals inspectionActuals) {
+		
+		
+		inspectionActualsRepo.save(inspectionActuals);
+		
+	}
+	@Override
+	public List<InspectionActuals> getAllByLotId(Integer lotId) {
+		
+		return inspectionActualsRepo.findAllByLotId(lotId);
+	}
+	@Override
+	public List<InspectionActuals> getAllByInspectionId(List<MaterialCharacteristics> list) {
+		
+		List<Integer> integers = new ArrayList<>();
+		
+		for(MaterialCharacteristics materialCharacteristics : list)
+		{
+			
+		}
+		
+		
+		return inspectionActualsRepo.findAllByMaterialCharacteristics(list);
+	}
+
+}

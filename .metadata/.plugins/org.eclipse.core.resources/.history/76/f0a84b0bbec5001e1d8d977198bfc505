@@ -1,0 +1,12 @@
+package com.zm.mi.service;
+
+import com.zm.mi.entity.InspectionActuals;
+
+public interface InspectionActualsService {
+
+	static void addActuals(InspectionActuals inspectionActuals) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5433/material_inspection
+spring.datasource.username=postgres
+spring.datasource.password=Sai1919@
+
+
+spring.mvc.view.prefix=/jsp/
+spring.mvc.view.suffix=.jsp
+
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+

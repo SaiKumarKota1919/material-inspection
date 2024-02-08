@@ -1,0 +1,58 @@
+package com.zm.mi.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.model.Material;
+import com.zm.mi.repo.MaterialRepo;
+import com.zm.mi.service.MaterialService;
+import com.zm.mi.utils.StringDataUtils;
+@Service
+public class MaterialServiceImpl implements MaterialService{
+@Autowired
+private MaterialRepo materialRepo;
+	@Override
+	public void saveMaterial(Material material) {
+		material.setMaterialId(StringDataUtils.normlaizeString(material.getMaterialId()).toUpperCase());
+		material.setMaterialDesc(StringDataUtils.normlaizeString(material.getMaterialDesc()).toLowerCase());
+		
+		
+		materialRepo.save(material);
+		
+	}
+
+	@Override
+	public boolean isAlreadyExists(Material material) {
+	if(materialRepo.
+			findByMaterialIdOrMaterialDesc(StringDataUtils.normlaizeString(material.getMaterialId()).toUpperCase(),
+						StringDataUtils.normlaizeString(material.getMaterialDesc()).toLowerCase())==null)
+		{
+			return false;
+		}
+
+		
+		return true;
+	}
+
+	@Override
+	public List<Material> searchMaterial(Material material) {
+		if(material.getMaterialId().isBlank() 
+				&& material.getMaterialDesc().isBlank() 
+				&& material.getMaterialType().isBlank())
+		{
+			return materialRepo.findAll();
+			
+		}
+		
+		else if(!material.getMaterialId().isBlank())
+		{
+			
+		}
+
+		
+		return null;
+	}
+
+}

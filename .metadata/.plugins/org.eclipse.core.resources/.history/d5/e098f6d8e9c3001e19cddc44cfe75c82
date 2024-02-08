@@ -1,0 +1,31 @@
+2024-02-05 11:12:50 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 17328 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-05 11:12:50 - No active profile set, falling back to 1 default profile: "default"
+2024-02-05 11:12:50 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-05 11:12:50 - Finished Spring Data repository scanning in 14 ms. Found 6 JPA repository interfaces.
+2024-02-05 11:12:51 - Tomcat initialized with port 8080 (http)
+2024-02-05 11:12:51 - Starting service [Tomcat]
+2024-02-05 11:12:51 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-05 11:12:51 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-05 11:12:51 - Initializing Spring embedded WebApplicationContext
+2024-02-05 11:12:51 - Root WebApplicationContext: initialization completed in 287 ms
+2024-02-05 11:12:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-05 11:12:51 - HHH000026: Second-level cache disabled
+2024-02-05 11:12:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-05 11:12:51 - HikariPool-4 - Starting...
+2024-02-05 11:12:51 - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@5a7fba6c
+2024-02-05 11:12:51 - HikariPool-4 - Start completed.
+2024-02-05 11:12:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-05 11:12:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-05 11:12:51 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-05 11:12:51 - Adding welcome page: class path resource [static/index.html]
+2024-02-05 11:12:51 - LiveReload server is running on port 35729
+2024-02-05 11:12:51 - Tomcat started on port 8080 (http) with context path ''
+2024-02-05 11:12:51 - Started MaterialInspectionApplication in 0.813 seconds (process running for 539.46)
+2024-02-05 11:12:51 - Condition evaluation unchanged
+2024-02-05 11:12:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-05 11:12:51 - Initializing Servlet 'dispatcherServlet'
+2024-02-05 11:12:51 - Completed initialization in 1 ms
+2024-02-05 11:15:47 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-02-05 11:15:47 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-05 11:15:47 - HikariPool-4 - Shutdown initiated...
+2024-02-05 11:15:47 - HikariPool-4 - Shutdown completed.

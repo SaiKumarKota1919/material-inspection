@@ -1,0 +1,64 @@
+package com.zm.mi.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.entity.InspectionActuals;
+import com.zm.mi.entity.MaterialCharacteristics;
+import com.zm.mi.model.ActualsAndExpected;
+import com.zm.mi.repo.InspectionActualsRepo;
+import com.zm.mi.service.InspectionActualsService;
+@Service
+public class InspectionActualsServiceImpl implements InspectionActualsService {
+@Autowired
+private InspectionActualsRepo inspectionActualsRepo;
+	@Override
+	public void addActuals(InspectionActuals inspectionActuals) {
+		
+		
+		inspectionActualsRepo.save(inspectionActuals);
+		
+	}
+	@Override
+	public List<InspectionActuals> getAllByLotId(Integer lotId) {
+		
+		return inspectionActualsRepo.findAllByLotId(lotId);
+	}
+	@Override
+	public List<InspectionActuals> getAllByInspectionId(List<MaterialCharacteristics> list) {
+		
+		List<Integer> characterIds = list.stream().map(l->l.getCharacterId()).toList();
+		
+		return inspectionActualsRepo.findAllByMaterialCharacteristics(characterIds);
+	}
+	
+	
+	@Override
+	public List<ActualsAndExpected> getActualsAndExpected(List<MaterialCharacteristics> list,
+			List<InspectionActuals> inspectionActuals) {
+			
+		
+		List<Integer> characterIds = inspectionActuals.stream().map(l->l.getMaterialCharacteristics()
+																.getCharacterId()).toList();
+		
+		for(int i=0;i<list.size();i++)
+		{
+			for(int j=0;j<characterIds.size();j++)
+			{
+				if(list.get(i).getCharacterId()!=characterIds.get(j));
+				{
+					
+					list.remove(i);
+				}
+				
+			}
+			
+		}
+		
+		return null;
+	}
+
+}

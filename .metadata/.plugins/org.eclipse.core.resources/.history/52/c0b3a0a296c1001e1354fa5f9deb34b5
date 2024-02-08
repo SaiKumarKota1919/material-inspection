@@ -1,0 +1,9 @@
+package com.zm.mi.repo;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VendorRepo extends JpaRepository<VendorRepo, Serializable> {
+
+}

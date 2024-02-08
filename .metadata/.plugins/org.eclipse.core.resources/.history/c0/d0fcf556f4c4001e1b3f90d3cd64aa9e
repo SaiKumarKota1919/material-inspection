@@ -1,0 +1,45 @@
+package com.zm.mi.model;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+public class InspectionActualsId implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private InspectionLot inspectionLot;
+	private MaterialCharacteristics materialCharacteristics;
+
+	public InspectionActualsId() {
+		super();
+
+	}
+
+	public InspectionActualsId(InspectionLot inspectionLot, MaterialCharacteristics materialCharacteristics) {
+		super();
+		this.inspectionLot = inspectionLot;
+		this.materialCharacteristics = materialCharacteristics;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(inspectionLot, materialCharacteristics);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		InspectionActualsId other = (InspectionActualsId) obj;
+		return Objects.equals(inspectionLot, other.inspectionLot)
+				&& Objects.equals(materialCharacteristics, other.materialCharacteristics);
+	}
+
+}

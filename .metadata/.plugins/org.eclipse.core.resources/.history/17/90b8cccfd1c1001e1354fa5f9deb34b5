@@ -1,0 +1,25 @@
+package com.zm.mi.model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@Entity
+@NoArgsConstructor
+
+public class Material {
+	@Id
+	private String materialId;
+	private String materialDesc;
+	private String materialType;
+	private Float materialCostPerUnit;
+	private LocalDate materialExpiratioDate;
+	
+
+}

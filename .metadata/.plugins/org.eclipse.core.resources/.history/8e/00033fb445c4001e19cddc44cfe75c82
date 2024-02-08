@@ -1,0 +1,46 @@
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.model.MaterialCharacteristics;
+import com.zm.mi.model.MaterialCharacteristicsForm;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Controller
+@RequestMapping("/characteristics")
+public class CharacteristicsController {
+
+    // Display the form
+    @GetMapping("/form")
+    public String characteristicsForm(Model model) {
+        // Initialize a wrapper object with a list of MaterialCharacteristics
+        MaterialCharacteristicsForm form = new MaterialCharacteristicsForm();
+        form.setCharacteristicsList(new ArrayList<>());
+
+        // Add the wrapper object to the model
+        model.addAttribute("characteristicsForm", form);
+
+        return ViewPageConstants.ADD_CHARACTER_PAGE;
+    }
+
+    // Handle form submission
+    @PostMapping("/add")
+    public String addCharacteristics(
+            @ModelAttribute("characteristicsForm") MaterialCharacteristicsForm characteristicsForm,
+            Model model) {
+        // Save or process the list of MaterialCharacteristics
+        List<MaterialCharacteristics> characteristicsList = characteristicsForm.getCharacteristicsList();
+        // Implement the logic to save the characteristicsList
+
+        // Add a success message or any additional logic if needed
+        model.addAttribute("successMessage", "Material Characteristics saved successfully!");
+
+        return "resultPage"; // Redirect to a result page or another view
+    }
+}

@@ -1,0 +1,61 @@
+package com.zm.mi.controller;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.entity.InspectionLot;
+import com.zm.mi.entity.Material;
+import com.zm.mi.entity.Plant;
+import com.zm.mi.entity.Vendor;
+import com.zm.mi.service.LotService;
+import com.zm.mi.service.MaterialService;
+import com.zm.mi.service.PlantService;
+import com.zm.mi.service.VendorService;
+
+@Controller
+@RequestMapping("/lot")
+public class LotController {
+	@Autowired
+	private LotService lotService;
+	@Autowired
+	private PlantService plantService;
+	@Autowired
+	private VendorService vendorService;
+	@Autowired
+	private MaterialService materialService;
+	
+	
+	@GetMapping("/form")
+	private String getLotForm(Model model)
+	{
+		model.addAttribute("plants",plantService.getAllPlants());
+		model.addAttribute("vendors",vendorService.getAllVendors());
+		model.addAttribute("materials",materialService.getAllMaterials());
+		
+		return ViewPageConstants.CREATE_LOT_FORM_PAGE;
+	}
+	
+	
+	@GetMapping("/add")
+	private String createLot(@ModelAttribute Vendor vendor)
+	{
+		
+	System.out.println(material);
+		//lotService.addLot(inspectionLot);
+		
+		return ViewPageConstants.HOME_PAGE;
+	}
+	
+	
+
+}

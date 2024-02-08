@@ -1,0 +1,78 @@
+package com.zm.mi.controller;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.entity.InspectionLot;
+import com.zm.mi.entity.Material;
+import com.zm.mi.entity.Plant;
+import com.zm.mi.entity.Vendor;
+import com.zm.mi.serachcriteria.LotSearchCriteria;
+import com.zm.mi.service.LotService;
+import com.zm.mi.service.MaterialService;
+import com.zm.mi.service.PlantService;
+import com.zm.mi.service.VendorService;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+@RequestMapping("/lot")
+public class LotController {
+	@Autowired
+	private LotService lotService;
+	@Autowired
+	private PlantService plantService;
+	@Autowired
+	private VendorService vendorService;
+	@Autowired
+	private MaterialService materialService;
+	
+	
+	@GetMapping("/form")
+	private String getLotForm(Model model)
+	{
+		model.addAttribute("plants",plantService.getAllPlants());
+		model.addAttribute("vendors",vendorService.getAllVendors());
+		model.addAttribute("materials",materialService.getAllMaterials());
+		
+		return ViewPageConstants.CREATE_LOT_FORM_PAGE;
+	}
+	
+	
+	@PostMapping("/add")
+	private String createLot(@ModelAttribute InspectionLot inspectionLot)
+	{
+		
+	System.out.println(inspectionLot);
+		lotService.addLot(inspectionLot);
+		
+		return ViewPageConstants.HOME_PAGE;
+	}
+	
+	@GetMapping("/search")
+	private String searchLot(@ModelAttribute LotSearchCriteria lotSearchCriteria,HttpSession session)
+	{
+		 List<InspectionLot> lots = lotService.getLotsByLotSearchCriteria(lotSearchCriteria);
+		 if(lotSearchCriteria.getFromDate()==null && session.getAttribute("lotSearchCriteria")!=null)
+		 {
+			 lotSearchCriteria = (LotSearchCriteria)session.getAttribute("lotSearchCriteria");
+			 
+		 }
+		
+		return ViewPageConstants.SHOW_LOTS_PAGE;
+	}
+	
+	
+
+}

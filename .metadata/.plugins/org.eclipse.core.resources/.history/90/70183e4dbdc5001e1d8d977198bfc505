@@ -1,0 +1,47 @@
+package com.zm.mi.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.zm.mi.constants.ViewPageConstants;
+import com.zm.mi.entity.InspectionActuals;
+import com.zm.mi.entity.InspectionLot;
+import com.zm.mi.service.InspectionActualsService;
+import com.zm.mi.service.LotService;
+
+@Controller
+@RequestMapping("/inspection")
+public class InspectionActualsController {
+	@Autowired
+	private InspectionActualsService inspectionService;
+	@Autowired
+	private LotService lotService;
+	
+	
+	@PostMapping("/add")
+	public String addInspection(@ModelAttribute InspectionActuals inspectionActuals)
+	{
+		
+		
+		
+		return ViewPageConstants.HOME_PAGE;
+	}
+	@GetMapping("/add/form/{lotId}")
+	public String getAddForm(@PathVariable Integer lotId,  Model model)
+	{
+		InspectionLot inspectionLot = lotService.getLotById(lotId);
+		model.addAttribute("lotId",lotId);
+		model.addAttribute("material",inspectionLot.getMaterial()); 
+		
+		
+		return ViewPageConstants.ADD_ACTUALS_FORM_PAGE;
+	}
+	
+
+}

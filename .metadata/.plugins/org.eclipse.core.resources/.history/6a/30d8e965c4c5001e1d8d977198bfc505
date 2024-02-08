@@ -1,0 +1,15 @@
+package com.zm.mi.repo;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.zm.mi.entity.InspectionActuals;
+import com.zm.mi.entity.InspectionLot;
+
+public interface InspectionActualsRepo extends JpaRepository<InspectionActuals, Serializable>{
+
+	List<InspectionActuals> findAllByInspectionLot(Integer lotId);
+	
+}

@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<jsp:include page="navbar.jsp"></jsp:include>
+
+<h1>Raw Material Inspection</h1>
+<br>
+<p>Raw material inspection, often overlooked in its importance, is the cornerstone of quality assurance in 
+manufacturing. The process involves scrutinizing raw materials before production, 
+ensuring they meet predefined standards. Regardless of the industry, manufacturers rely on this meticulous examination to guarantee the end product’s integrity.
+
+The heart of raw material inspection lies in a comprehensive examination.
+ Experts meticulously scrutinize materials’ physical, chemical, and even microscopic aspects. This keen attention allows for identifying potential issues that compromise the quality of the final product.</p>
+</body>
+</html>

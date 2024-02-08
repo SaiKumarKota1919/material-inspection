@@ -1,0 +1,9 @@
+package com.zm.mi.service;
+
+import com.zm.mi.model.Vendor;
+
+public interface VendorService {
+
+	boolean isAlreadyExists(Vendor vendor);
+
+}

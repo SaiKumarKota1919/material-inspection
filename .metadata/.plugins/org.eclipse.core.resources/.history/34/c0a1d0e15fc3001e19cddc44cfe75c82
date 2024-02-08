@@ -1,0 +1,25 @@
+package com.zm.mi.utils;
+
+public class StringDataUtils {
+	private static final String MULTIPLE_SPACE_REGX = " +";
+	private static final String SINGLE_SPACE_REGX = " ";
+
+	private static String[] normlaizeString(String... string)
+	{
+		String[] nrmlStringArr = null; 
+		if(string!=null && string.length!=0)
+		{
+			nrmlStringArr = new String[string.length];
+			
+			for(int i=0;i<string.length;i++)
+			{
+				nrmlStringArr[i] = string[i].trim().replaceAll(MULTIPLE_SPACE_REGX, SINGLE_SPACE_REGX);
+			}
+			
+		}
+		 
+		
+		return nrmlStringArr;
+	}
+
+}

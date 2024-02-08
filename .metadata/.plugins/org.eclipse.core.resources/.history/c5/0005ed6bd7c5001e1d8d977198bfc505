@@ -1,0 +1,17 @@
+package com.zm.mi.model;
+
+public class ActualsAndExpected {
+	
+	private String materialId;
+	private String materialDesc;
+	private String materialType;
+	private Integer characterId;
+	private String  characterDesc;
+	private Float upperTolLimit;
+	private Float lowerTolLimit;
+	private String unitsOfMsrmnt;
+	private Float maxMeasurement;
+	private Float minMeasurement;
+	
+
+}

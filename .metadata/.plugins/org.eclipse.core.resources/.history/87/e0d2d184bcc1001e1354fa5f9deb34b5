@@ -1,0 +1,29 @@
+package com.zm.mi;
+
+import java.util.Arrays;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.zm.mi.model.Plant;
+import com.zm.mi.service.PlantService;
+
+@SpringBootApplication
+public class MaterialInspectionApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(MaterialInspectionApplication.class, args);
+		   
+	}
+	private static void openBrowser(String url) {
+        try {
+            // Change path to your browser's executable file if needed
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+	
+
+}

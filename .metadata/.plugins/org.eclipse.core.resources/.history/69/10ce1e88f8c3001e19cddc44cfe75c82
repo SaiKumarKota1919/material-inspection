@@ -1,0 +1,26 @@
+package com.zm.mi.constants;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ViewPageConstants {
+	
+	public static final String HOME_PAGE="home";
+	
+	public static final String ADD_PLANT_PAGE="add-plant";
+	
+	public static final String NAV_BAR ="navbar";
+	
+	public static final String LOGIN_PAGE="login";
+	
+	public static final String ADD_VENDOR_PAGE ="add-vendor";
+	
+	public static final String ADD_MATERIAL_PAGE ="add-material";
+	
+	public static final String ADD_CHARACTER_PAGE ="add-characteristics";
+	
+	public static final String SEARCH_MATERIAL_PAGE ="search-material";
+	
+	public static final String SHOW_MATERIALS_PAGE ="show-materials";
+
+}

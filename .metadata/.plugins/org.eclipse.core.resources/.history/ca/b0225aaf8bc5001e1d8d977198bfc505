@@ -1,0 +1,15 @@
+package com.zm.mi.serachcriteria;
+
+import java.time.LocalDate;
+
+public class LotSearchCriteria {
+	
+	private Integer lotId;
+	private LocalDate fromDate;
+	private LocalDate toDate;
+	private String materialId;
+	private String plantId;
+	private String status;
+	
+
+}

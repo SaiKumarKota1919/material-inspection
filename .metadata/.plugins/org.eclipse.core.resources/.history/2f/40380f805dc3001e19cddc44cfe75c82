@@ -1,0 +1,10 @@
+package com.zm.mi.utils;
+
+public class StringDataUtils {
+	
+	private static String normlaizeString(String string)
+	{
+		
+	}
+
+}
