@@ -8,21 +8,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.zm.mi.constants.ViewPageConstants;
 import com.zm.mi.entity.InspectionLot;
 import com.zm.mi.entity.Material;
 import com.zm.mi.entity.Plant;
 import com.zm.mi.entity.Vendor;
+import com.zm.mi.model.ActualsAndExpected;
 import com.zm.mi.serachcriteria.LotSearchCriteria;
 import com.zm.mi.service.InspectionActualsService;
 import com.zm.mi.service.LotService;
 import com.zm.mi.service.MaterialService;
 import com.zm.mi.service.PlantService;
+import com.zm.mi.service.UserService;
 import com.zm.mi.service.VendorService;
 
 import jakarta.servlet.http.HttpSession;
@@ -40,6 +44,8 @@ public class LotController {
 	private MaterialService materialService;
 	@Autowired
 	private InspectionActualsService inspectionActualsService;
+	@Autowired
+	private UserService userService;
 	
 	
 	@GetMapping("/form")
@@ -84,6 +90,39 @@ public class LotController {
 		return ViewPageConstants.SHOW_LOTS_PAGE;
 	}
 	
+	@GetMapping("/result/{lotId}")
+	public String getLotResult(@PathVariable Integer lotId,Model model)
+	{
+		InspectionLot inspectionLot = lotService.getLotById(lotId);
+		
+		List<ActualsAndExpected> actualsAndExpectedList = inspectionActualsService.getActualsAndExpected(inspectionLot.getMaterial()
+									.getMaterialCharacteristics(), 
+									inspectionLot.getInspectionActuals());
+		
+		model.addAttribute("inspectionLot",inspectionLot);
+		model.addAttribute("material", inspectionLot.getMaterial());
+		
+		return ViewPageConstants.SHOW_RESULT_PAGE;
+	}
+	@PostMapping("/edit/{lotId}")
+	public String editResult(@PathVariable Integer lotId,
+							@RequestParam Integer userId,
+							@RequestParam String remarks,
+							@RequestParam String result)
 	
+	{
+		
+		
+		InspectionLot lot = lotService.getLotById(lotId);
+		lot.setUser(userService.getUserById(userId));
+		lot.setRemarks(remarks);
+		lot.setResult(result);
+		
+		lotService.addLot(lot);
+		
+		
+		
+		return ViewPageConstants.REDIRECT_SHOW_RESULT_PAGE+"/"+lotId;
+	}
 
 }

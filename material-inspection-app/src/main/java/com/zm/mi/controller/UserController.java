@@ -2,6 +2,7 @@ package com.zm.mi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.zm.mi.constants.ViewPageConstants;
 import com.zm.mi.entity.User;
 import com.zm.mi.service.UserService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 
 @Controller
 @RequestMapping("/user")
@@ -19,16 +23,25 @@ public class UserController {
 
 	@PostMapping("/login")
 	public String userLogin(@RequestParam("userName") String userName, 
-							@RequestParam("password") String password) {
+							@RequestParam("password") String password,
+							HttpSession session) {
 	
-		User user = new User();
-		user.setUserName(userName);
-		user.setPassword(password);
-		if(userService.isValidUser(user))
+		User user =userService.getUserByuserNameAndPassword(userName,password);
+		
+		if(user!=null)
 		{
-			System.out.println("#######################");
+			
+			session.setAttribute("user",user);
 			return ViewPageConstants.HOME_PAGE;
 		}
+		return ViewPageConstants.LOGIN_PAGE;
+	}
+	
+	@GetMapping("/logout")
+	public String userLogout(HttpSession session)
+	{
+		session.setAttribute("user", null);
+		
 		return ViewPageConstants.LOGIN_PAGE;
 	}
 

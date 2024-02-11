@@ -17,8 +17,6 @@ import lombok.ToString;
 @Table(name = "users")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "userId")
-	@SequenceGenerator(sequenceName = "userIdSeq",name = "userId",initialValue = 2001,allocationSize = 1)
 	private Integer userId;
 	private String userName;
 	private String password;

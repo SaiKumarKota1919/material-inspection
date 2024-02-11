@@ -1,5 +1,0 @@
-package com.zm.mi.service;
-
-public interface VendorService {
-
-}

@@ -45,4 +45,7 @@ public class ViewPageConstants {
 	
 	public static final String SHOW_ACTUALS_PAGE = "show-actuals";
 
+	public static final String SHOW_RESULT_PAGE = "show-result";
+	
+	public static final String REDIRECT_SHOW_RESULT_PAGE = "redirect:/lot/result";
 }

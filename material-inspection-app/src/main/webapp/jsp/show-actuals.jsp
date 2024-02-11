@@ -62,9 +62,18 @@
                                 <td>${characteristic.characterId}</td>
                                 <td>${characteristic.characterDesc}</td>
                                 <td>${characteristic.upperTolLimit}</td>
-                                <td>${characteristic.maxMeasurement}</td>
+                                
+                                <td 
+                                <c:if test="${characteristic.maxMeasurement gt characteristic.upperTolLimit}">
+                                style="color: red;"
+                                </c:if>
+                                >${characteristic.maxMeasurement}</td>
                                 <td>${characteristic.lowerTolLimit}</td>
-                                <td>${characteristic.minMeasurement}</td>
+                                <td
+                                 <c:if test="${characteristic.minMeasurement lt characteristic.lowerTolLimit}">
+                                style="color: red;"
+                                </c:if>
+                                >${characteristic.minMeasurement}</td>
                                 <td>${characteristic.unitsOfMsrmnt}</td>
                                 <td>
                 <a href="/characteristics/edit/${characteristic.characterId}" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i> Edit</a>

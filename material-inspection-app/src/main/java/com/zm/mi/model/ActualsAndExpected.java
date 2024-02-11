@@ -18,6 +18,8 @@ public class ActualsAndExpected {
 	private String unitsOfMsrmnt;
 	private Float maxMeasurement;
 	private Float minMeasurement;
+	private String Remarks;
+	private String status;
 	
 	public ActualsAndExpected(String materialId, String materialDesc, String materialType, Integer characterId,
 			String characterDesc, Float upperTolLimit, Float lowerTolLimit, String unitsOfMsrmnt, Float maxMeasurement,

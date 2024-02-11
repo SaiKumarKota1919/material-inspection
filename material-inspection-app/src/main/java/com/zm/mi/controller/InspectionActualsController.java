@@ -1,5 +1,7 @@
 package com.zm.mi.controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zm.mi.constants.ViewPageConstants;
 import com.zm.mi.entity.InspectionActuals;
@@ -32,8 +35,30 @@ public class InspectionActualsController {
 	private MaterialService materialService;
 
 	@PostMapping("/add")
-	public String addInspection(@ModelAttribute InspectionActuals inspectionActuals) {
-
+	public String addInspection(@ModelAttribute InspectionActuals inspectionActuals,
+								@RequestParam(required = false)LocalDate startDate,
+								@RequestParam(required = false)LocalDate endDate) {
+		
+		InspectionLot inspectionLot = inspectionActuals.getInspectionLot();
+		
+		if(startDate!=null)
+		{
+			inspectionLot.setStartDate(startDate);
+			inspectionLot.setResult("UNDER PROCESS");
+	
+			lotService.addLot(inspectionLot);
+		}
+		if(endDate!=null)
+		{
+			inspectionLot.setEndDate(endDate);
+			lotService.addLot(inspectionLot);
+			
+		    ActualsAndExpected actualsAndExpected=lotService.processInspection(inspectionLot);
+			
+		}
+		
+		
+		
 		inspectionActualsService.addActuals(inspectionActuals);
 
 		return ViewPageConstants.REDIRECT_TO_SHOW_LOTS_PAGE;
@@ -47,13 +72,18 @@ public class InspectionActualsController {
 		List<MaterialCharacteristics> materialCharacteristics = inspectionLot.getMaterial()
 				.getMaterialCharacteristics();
 
+		 List<MaterialCharacteristics> matChars = new ArrayList<>(materialCharacteristics);
+		 
 		
+		 
 		List<MaterialCharacteristics> list = inspectionActualsService.getAllByLotId(lotId).stream()
 												.map(i->i.getMaterialCharacteristics())
 												.toList();
 		
 		materialCharacteristics.removeAll(list);
 		
+		model.addAttribute("inspectionActuals",list);
+		model.addAttribute("matChars",matChars);
 		model.addAttribute("materialCharacters",materialCharacteristics);
 		
 		return ViewPageConstants.ADD_ACTUALS_FORM_PAGE;

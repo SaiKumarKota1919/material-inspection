@@ -3,6 +3,7 @@ package com.zm.mi.service;
 import java.util.List;
 
 import com.zm.mi.entity.InspectionLot;
+import com.zm.mi.model.ActualsAndExpected;
 import com.zm.mi.serachcriteria.LotSearchCriteria;
 
 public interface LotService {
@@ -12,5 +13,7 @@ public interface LotService {
 	List<InspectionLot> getLotsByLotSearchCriteria(LotSearchCriteria lotSearchCriteria);
 
 	InspectionLot getLotById(Integer lotId);
+
+	ActualsAndExpected processInspection(InspectionLot inspectionLot);
 	
 }

@@ -1,5 +1,7 @@
 package com.zm.mi.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,34 @@ public class UserserviceImpl implements UserService {
 		}
 
 		return true;
+	}
+
+	@Override
+	public User getUserById(Integer userId) {
+		
+		Optional<User> user = userRepo.findById(userId);
+		
+		if(user.isPresent())
+		{
+			return user.get();
+		}
+		
+		return null;
+	}
+
+	@Override
+	public User getUserByuserNameAndPassword(String userName,String password) {
+		Optional<User> user = userRepo.findByUserNameAndPassword(userName,password);
+		
+		if (user.isPresent())
+		{
+			
+			return user.get();
+
+		}
+
+		return null;
+
 	}
 
 }

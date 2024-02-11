@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
      a.dropdown-item:hover {
@@ -7,6 +8,9 @@
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 20px">
+	<c:if test="${user==null}">
+				<jsp:forward page="login.jsp"/>
+			</c:if>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
@@ -68,10 +72,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="/jsp/home.jsp">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+            <li class="nav-item"> 
+            	<c:if test="${user!=null}">
+                <a class="nav-link" href="/user/logout">${user.userName} Logout</a>
+               
+                </c:if>
             </li>
         </ul>
+        
+			
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

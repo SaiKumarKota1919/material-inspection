@@ -1,7 +1,0 @@
-package com.zm.mi.service.impl;
-
-import com.zm.mi.service.PlantService;
-
-public class PlantServiceImpl implements PlantService {
-
-}

@@ -3,6 +3,12 @@ package com.zm.mi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationFailedEvent;
+import org.springframework.boot.context.event.ApplicationPreparedEvent;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.boot.context.event.ApplicationStartingEvent;
+import org.springframework.context.event.EventListener;
 
 
 @SpringBootApplication
@@ -11,12 +17,20 @@ public class MaterialInspectionApplication {
 	public static void main(String[] args) {
 	 SpringApplication.run(MaterialInspectionApplication.class, args);
 		   
-		openBrowser("http://localhost:8080");
+		//openBrowser("http://localhost:8080");
 	}
-	private static void openBrowser(String url) {
+	//@EventListener(ApplicationReadyEvent.class)
+	 @EventListener(ApplicationStartedEvent.class)
+	
+	//@EventListener(ApplicationStartingEvent.class)
+	//@EventListener(ApplicationPreparedEvent.class)
+	//@EventListener(ApplicationFailedEvent.class)
+	private void openBrowser() {
+		
+		System.out.println("#### application ######");
         try {
-         
-         Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
+        // String url ="http://localhost:8080";
+         Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://localhost:8080");
         //Runtime.getRuntime().exec("notepad");
         } catch (Exception e) {
             e.printStackTrace();

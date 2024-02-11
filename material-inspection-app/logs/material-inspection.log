@@ -1,124 +1,523 @@
-2024-02-08 00:00:37 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 31264 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 00:00:37 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 00:00:37 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-08 00:00:37 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-08 00:00:38 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 00:00:38 - Finished Spring Data repository scanning in 68 ms. Found 7 JPA repository interfaces.
-2024-02-08 00:00:39 - Tomcat initialized with port 8080 (http)
-2024-02-08 00:00:39 - Starting service [Tomcat]
-2024-02-08 00:00:39 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 00:00:39 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 00:00:39 - Initializing Spring embedded WebApplicationContext
-2024-02-08 00:00:39 - Root WebApplicationContext: initialization completed in 1430 ms
-2024-02-08 00:00:39 - Cannot deserialize session attribute [lots] for session [3324BBC3B795F47C9A7AD54ADDC1189D]
-2024-02-08 00:00:39 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 00:00:39 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-08 00:00:39 - HHH000026: Second-level cache disabled
-2024-02-08 00:00:39 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 00:00:39 - HikariPool-1 - Starting...
-2024-02-08 00:00:39 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@12489686
-2024-02-08 00:00:39 - HikariPool-1 - Start completed.
-2024-02-08 00:00:40 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 00:00:41 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 00:00:41 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-02-08 00:00:41 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 00:00:41 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 00:00:41 - LiveReload server is running on port 35729
-2024-02-08 00:00:41 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 00:00:41 - Started MaterialInspectionApplication in 4.54 seconds (process running for 5.281)
-2024-02-08 00:00:42 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 00:00:42 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 00:00:42 - Completed initialization in 1 ms
-2024-02-08 00:01:06 - Servlet.service() for servlet [jsp] threw exception
-java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsRepo.findAllByMaterialCharacteristics(java.util.List)" because "this.inspectionActualsRepo" is null
-	at com.zm.mi.service.impl.InspectionActualsServiceImpl.getAllByInspectionId(InspectionActualsServiceImpl.java:40)
-	at org.apache.jsp.jsp.show_002dlot_jsp._jspService(show_002dlot_jsp.java:209)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:277)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-2024-02-08 00:01:06 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [An exception occurred processing [/jsp/show-lot.jsp] at line [59]
+2024-02-10 20:07:09 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 1980 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 20:07:09 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 20:07:09 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 20:07:09 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 20:07:09 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 20:07:09 - Finished Spring Data repository scanning in 69 ms. Found 7 JPA repository interfaces.
+2024-02-10 20:07:10 - Tomcat initialized with port 8080 (http)
+2024-02-10 20:07:10 - Starting service [Tomcat]
+2024-02-10 20:07:10 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 20:07:10 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 20:07:10 - Initializing Spring embedded WebApplicationContext
+2024-02-10 20:07:10 - Root WebApplicationContext: initialization completed in 1518 ms
+2024-02-10 20:07:10 - Cannot deserialize session attribute [lots] for session [B68582BE73CCA576B86F1D54B073B07E]
+2024-02-10 20:07:10 - Cannot deserialize session attribute [materials] for session [B68582BE73CCA576B86F1D54B073B07E]
+2024-02-10 20:07:10 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 20:07:10 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 20:07:10 - HHH000026: Second-level cache disabled
+2024-02-10 20:07:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 20:07:11 - HikariPool-1 - Starting...
+2024-02-10 20:07:11 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3469a304
+2024-02-10 20:07:11 - HikariPool-1 - Start completed.
+2024-02-10 20:07:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 20:07:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:07:13 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 20:07:13 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 20:07:13 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 20:07:13 - LiveReload server is running on port 35729
+2024-02-10 20:07:13 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 20:07:13 - Started MaterialInspectionApplication in 5.242 seconds (process running for 15.604)
+2024-02-10 20:07:14 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 20:07:14 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 20:07:14 - Completed initialization in 7 ms
+2024-02-10 20:10:32 - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "edit"]
+2024-02-10 20:14:01 - Application shutdown requested.
+2024-02-10 20:14:02 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:14:02 - HikariPool-1 - Shutdown initiated...
+2024-02-10 20:14:02 - HikariPool-1 - Shutdown completed.
+2024-02-10 20:15:18 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 16156 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 20:15:18 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 20:15:18 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 20:15:18 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 20:15:19 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 20:15:19 - Finished Spring Data repository scanning in 79 ms. Found 7 JPA repository interfaces.
+2024-02-10 20:15:19 - Tomcat initialized with port 8080 (http)
+2024-02-10 20:15:19 - Starting service [Tomcat]
+2024-02-10 20:15:19 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 20:15:20 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 20:15:20 - Initializing Spring embedded WebApplicationContext
+2024-02-10 20:15:20 - Root WebApplicationContext: initialization completed in 1690 ms
+2024-02-10 20:15:20 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 20:15:20 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 20:15:20 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 20:15:20 - HHH000026: Second-level cache disabled
+2024-02-10 20:15:20 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 20:15:20 - HikariPool-1 - Starting...
+2024-02-10 20:15:20 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24b81dbe
+2024-02-10 20:15:20 - HikariPool-1 - Start completed.
+2024-02-10 20:15:22 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 20:15:22 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:15:22 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 20:15:22 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 20:15:22 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 20:15:23 - LiveReload server is running on port 35729
+2024-02-10 20:15:23 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 20:15:23 - Started MaterialInspectionApplication in 5.306 seconds (process running for 6.242)
+2024-02-10 20:15:23 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 20:15:23 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 20:15:23 - Completed initialization in 3 ms
+2024-02-10 20:23:34 - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-02-10 20:23:34 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:23:34 - HikariPool-1 - Shutdown initiated...
+2024-02-10 20:23:34 - HikariPool-1 - Shutdown completed.
+2024-02-10 20:23:34 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 16156 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 20:23:34 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 20:23:34 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 20:23:34 - Finished Spring Data repository scanning in 23 ms. Found 7 JPA repository interfaces.
+2024-02-10 20:23:34 - Tomcat initialized with port 8080 (http)
+2024-02-10 20:23:34 - Starting service [Tomcat]
+2024-02-10 20:23:34 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 20:23:34 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 20:23:34 - Initializing Spring embedded WebApplicationContext
+2024-02-10 20:23:34 - Root WebApplicationContext: initialization completed in 434 ms
+2024-02-10 20:23:34 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 20:23:34 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 20:23:34 - HHH000026: Second-level cache disabled
+2024-02-10 20:23:34 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 20:23:34 - HikariPool-2 - Starting...
+2024-02-10 20:23:35 - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@6a807f9b
+2024-02-10 20:23:35 - HikariPool-2 - Start completed.
+2024-02-10 20:23:35 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 20:23:35 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:23:35 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 20:23:35 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 20:23:35 - LiveReload server is running on port 35729
+2024-02-10 20:23:35 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 20:23:35 - Started MaterialInspectionApplication in 1.183 seconds (process running for 498.658)
+2024-02-10 20:23:35 - Condition evaluation unchanged
+2024-02-10 20:23:35 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 20:23:35 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 20:23:35 - Completed initialization in 3 ms
+2024-02-10 20:23:39 - Application shutdown requested.
+2024-02-10 20:23:39 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:23:39 - HikariPool-2 - Shutdown initiated...
+2024-02-10 20:23:39 - HikariPool-2 - Shutdown completed.
+2024-02-10 20:28:14 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 36572 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 20:28:14 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 20:28:14 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 20:28:14 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 20:28:15 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 20:28:15 - Finished Spring Data repository scanning in 80 ms. Found 7 JPA repository interfaces.
+2024-02-10 20:28:15 - Tomcat initialized with port 8080 (http)
+2024-02-10 20:28:16 - Starting service [Tomcat]
+2024-02-10 20:28:16 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 20:28:16 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 20:28:16 - Initializing Spring embedded WebApplicationContext
+2024-02-10 20:28:16 - Root WebApplicationContext: initialization completed in 1762 ms
+2024-02-10 20:28:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 20:28:16 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 20:28:16 - HHH000026: Second-level cache disabled
+2024-02-10 20:28:16 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 20:28:16 - HikariPool-1 - Starting...
+2024-02-10 20:28:16 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@308aff96
+2024-02-10 20:28:16 - HikariPool-1 - Start completed.
+2024-02-10 20:28:18 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 20:28:18 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:28:18 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 20:28:18 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 20:28:18 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 20:28:19 - LiveReload server is running on port 35729
+2024-02-10 20:28:19 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 20:28:19 - Started MaterialInspectionApplication in 5.403 seconds (process running for 6.301)
+2024-02-10 20:28:19 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 20:28:19 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 20:28:19 - Completed initialization in 1 ms
+2024-02-10 20:29:09 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2024-02-10 20:29:23 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-02-10 20:29:23 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:29:23 - HikariPool-1 - Shutdown initiated...
+2024-02-10 20:29:23 - HikariPool-1 - Shutdown completed.
+2024-02-10 20:29:23 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 36572 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 20:29:23 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 20:29:23 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 20:29:23 - Finished Spring Data repository scanning in 24 ms. Found 7 JPA repository interfaces.
+2024-02-10 20:29:23 - Tomcat initialized with port 8080 (http)
+2024-02-10 20:29:23 - Starting service [Tomcat]
+2024-02-10 20:29:23 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 20:29:24 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 20:29:24 - Initializing Spring embedded WebApplicationContext
+2024-02-10 20:29:24 - Root WebApplicationContext: initialization completed in 407 ms
+2024-02-10 20:29:24 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 20:29:24 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 20:29:24 - HHH000026: Second-level cache disabled
+2024-02-10 20:29:24 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 20:29:24 - HikariPool-2 - Starting...
+2024-02-10 20:29:24 - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@fa38a12
+2024-02-10 20:29:24 - HikariPool-2 - Start completed.
+2024-02-10 20:29:24 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 20:29:24 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:29:24 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 20:29:24 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 20:29:24 - LiveReload server is running on port 35729
+2024-02-10 20:29:24 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 20:29:24 - Started MaterialInspectionApplication in 1.17 seconds (process running for 71.797)
+2024-02-10 20:29:24 - Condition evaluation unchanged
+2024-02-10 20:29:25 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 20:29:25 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 20:29:25 - Completed initialization in 3 ms
+2024-02-10 20:29:51 - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'userId' for method parameter type Integer is present but converted to null]
+2024-02-10 20:31:26 - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'userId' for method parameter type Integer is present but converted to null]
+2024-02-10 20:32:21 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-02-10 20:32:21 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:32:21 - HikariPool-2 - Shutdown initiated...
+2024-02-10 20:32:21 - HikariPool-2 - Shutdown completed.
+2024-02-10 20:32:21 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 36572 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 20:32:21 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 20:32:21 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 20:32:21 - Finished Spring Data repository scanning in 23 ms. Found 7 JPA repository interfaces.
+2024-02-10 20:32:21 - Tomcat initialized with port 8080 (http)
+2024-02-10 20:32:21 - Starting service [Tomcat]
+2024-02-10 20:32:21 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 20:32:21 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 20:32:21 - Initializing Spring embedded WebApplicationContext
+2024-02-10 20:32:21 - Root WebApplicationContext: initialization completed in 385 ms
+2024-02-10 20:32:21 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 20:32:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 20:32:21 - HHH000026: Second-level cache disabled
+2024-02-10 20:32:21 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 20:32:21 - HikariPool-3 - Starting...
+2024-02-10 20:32:21 - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@3a8905e9
+2024-02-10 20:32:21 - HikariPool-3 - Start completed.
+2024-02-10 20:32:22 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 20:32:22 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:32:22 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 20:32:22 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 20:32:22 - LiveReload server is running on port 35729
+2024-02-10 20:32:22 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 20:32:22 - Started MaterialInspectionApplication in 1.112 seconds (process running for 249.489)
+2024-02-10 20:32:22 - Condition evaluation unchanged
+2024-02-10 20:32:22 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 20:32:22 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 20:32:22 - Completed initialization in 3 ms
+2024-02-10 20:32:51 - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'userId' for method parameter type Integer is present but converted to null]
+2024-02-10 20:33:35 - Application shutdown requested.
+2024-02-10 20:33:35 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:33:35 - HikariPool-3 - Shutdown initiated...
+2024-02-10 20:33:35 - HikariPool-3 - Shutdown completed.
+2024-02-10 20:34:00 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 36032 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 20:34:00 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 20:34:01 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 20:34:01 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 20:34:01 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 20:34:01 - Finished Spring Data repository scanning in 89 ms. Found 7 JPA repository interfaces.
+2024-02-10 20:34:02 - Tomcat initialized with port 8080 (http)
+2024-02-10 20:34:02 - Starting service [Tomcat]
+2024-02-10 20:34:02 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 20:34:02 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 20:34:02 - Initializing Spring embedded WebApplicationContext
+2024-02-10 20:34:02 - Root WebApplicationContext: initialization completed in 1746 ms
+2024-02-10 20:34:02 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 20:34:02 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 20:34:02 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 20:34:03 - HHH000026: Second-level cache disabled
+2024-02-10 20:34:03 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 20:34:03 - HikariPool-1 - Starting...
+2024-02-10 20:34:03 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f934f5f
+2024-02-10 20:34:03 - HikariPool-1 - Start completed.
+2024-02-10 20:34:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 20:34:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:34:05 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 20:34:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 20:34:05 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 20:34:06 - LiveReload server is running on port 35729
+2024-02-10 20:34:06 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 20:34:06 - Started MaterialInspectionApplication in 5.741 seconds (process running for 6.63)
+2024-02-10 20:34:06 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 20:34:06 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 20:34:06 - Completed initialization in 2 ms
+2024-02-10 20:36:30 - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'userId' for method parameter type Integer is present but converted to null]
+2024-02-10 20:39:35 - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'userId' for method parameter type Integer is present but converted to null]
+2024-02-10 20:39:46 - Application shutdown requested.
+2024-02-10 20:39:46 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 20:39:46 - HikariPool-1 - Shutdown initiated...
+2024-02-10 20:39:46 - HikariPool-1 - Shutdown completed.
+2024-02-10 21:03:46 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 23584 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 21:03:46 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 21:03:46 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 21:03:46 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 21:03:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 21:03:47 - Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
+2024-02-10 21:03:47 - Tomcat initialized with port 8080 (http)
+2024-02-10 21:03:47 - Starting service [Tomcat]
+2024-02-10 21:03:47 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 21:03:48 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 21:03:48 - Initializing Spring embedded WebApplicationContext
+2024-02-10 21:03:48 - Root WebApplicationContext: initialization completed in 1422 ms
+2024-02-10 21:03:48 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 21:03:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 21:03:48 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 21:03:48 - HHH000026: Second-level cache disabled
+2024-02-10 21:03:48 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 21:03:48 - HikariPool-1 - Starting...
+2024-02-10 21:03:48 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2ea2a41c
+2024-02-10 21:03:48 - HikariPool-1 - Start completed.
+2024-02-10 21:03:49 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 21:03:49 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:03:50 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 21:03:50 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 21:03:50 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 21:03:50 - LiveReload server is running on port 35729
+2024-02-10 21:03:50 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 21:03:50 - Started MaterialInspectionApplication in 4.471 seconds (process running for 5.301)
+2024-02-10 21:03:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 21:03:51 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 21:03:51 - Completed initialization in 2 ms
+2024-02-10 21:23:32 - Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2024-02-10 21:23:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:23:32 - HikariPool-1 - Shutdown initiated...
+2024-02-10 21:23:32 - HikariPool-1 - Shutdown completed.
+2024-02-10 21:23:33 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 23584 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 21:23:33 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 21:23:33 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 21:23:33 - Finished Spring Data repository scanning in 22 ms. Found 7 JPA repository interfaces.
+2024-02-10 21:23:33 - Tomcat initialized with port 8080 (http)
+2024-02-10 21:23:33 - Starting service [Tomcat]
+2024-02-10 21:23:33 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 21:23:33 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 21:23:33 - Initializing Spring embedded WebApplicationContext
+2024-02-10 21:23:33 - Root WebApplicationContext: initialization completed in 445 ms
+2024-02-10 21:23:33 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 21:23:33 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 21:23:33 - HHH000026: Second-level cache disabled
+2024-02-10 21:23:33 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 21:23:33 - HikariPool-2 - Starting...
+2024-02-10 21:23:33 - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@73ed0f19
+2024-02-10 21:23:33 - HikariPool-2 - Start completed.
+2024-02-10 21:23:33 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 21:23:33 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:23:34 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 21:23:34 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 21:23:34 - LiveReload server is running on port 35729
+2024-02-10 21:23:34 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 21:23:34 - Started MaterialInspectionApplication in 1.233 seconds (process running for 1189.016)
+2024-02-10 21:23:34 - Condition evaluation unchanged
+2024-02-10 21:23:34 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 21:23:34 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 21:23:34 - Completed initialization in 2 ms
+2024-02-10 21:24:01 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-02-10 21:24:01 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:24:01 - HikariPool-2 - Shutdown initiated...
+2024-02-10 21:24:01 - HikariPool-2 - Shutdown completed.
+2024-02-10 21:24:01 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 23584 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 21:24:01 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 21:24:01 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 21:24:01 - Finished Spring Data repository scanning in 20 ms. Found 7 JPA repository interfaces.
+2024-02-10 21:24:01 - Tomcat initialized with port 8080 (http)
+2024-02-10 21:24:01 - Starting service [Tomcat]
+2024-02-10 21:24:01 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 21:24:01 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 21:24:01 - Initializing Spring embedded WebApplicationContext
+2024-02-10 21:24:01 - Root WebApplicationContext: initialization completed in 365 ms
+2024-02-10 21:24:01 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 21:24:01 - HHH000026: Second-level cache disabled
+2024-02-10 21:24:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 21:24:01 - HikariPool-3 - Starting...
+2024-02-10 21:24:01 - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@1e29ff84
+2024-02-10 21:24:01 - HikariPool-3 - Start completed.
+2024-02-10 21:24:02 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 21:24:02 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:24:02 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 21:24:02 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 21:24:02 - LiveReload server is running on port 35729
+2024-02-10 21:24:02 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 21:24:02 - Started MaterialInspectionApplication in 1.021 seconds (process running for 1217.171)
+2024-02-10 21:24:02 - Condition evaluation unchanged
+2024-02-10 21:24:02 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 21:24:02 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 21:24:02 - Completed initialization in 2 ms
+2024-02-10 21:24:43 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 4556 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 21:24:43 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 21:24:43 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 21:24:43 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 21:24:44 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 21:24:44 - Finished Spring Data repository scanning in 80 ms. Found 7 JPA repository interfaces.
+2024-02-10 21:24:45 - Tomcat initialized with port 8080 (http)
+2024-02-10 21:24:45 - Starting service [Tomcat]
+2024-02-10 21:24:45 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 21:24:45 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 21:24:45 - Initializing Spring embedded WebApplicationContext
+2024-02-10 21:24:45 - Root WebApplicationContext: initialization completed in 1993 ms
+2024-02-10 21:24:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 21:24:46 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 21:24:46 - HHH000026: Second-level cache disabled
+2024-02-10 21:24:46 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 21:24:46 - HikariPool-1 - Starting...
+2024-02-10 21:24:47 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4bb7c443
+2024-02-10 21:24:47 - HikariPool-1 - Start completed.
+2024-02-10 21:24:48 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 21:24:48 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:24:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 21:24:49 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 21:24:49 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 21:24:49 - Unable to start LiveReload server
+2024-02-10 21:24:49 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-02-10 21:24:49 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:24:49 - HikariPool-1 - Shutdown initiated...
+2024-02-10 21:24:49 - HikariPool-1 - Shutdown completed.
+2024-02-10 21:24:49 - 
 
-56:             <td><%= lot.getPlant().getPlantName() %></td>
-57:             <td><%= lot.getVendor().getVendorName()%></td>
-58:             <td><%= lot.getMaterial().getMaterialDesc()%></td>
-59:             <% System.out.println("@@@@@ ****"+ new InspectionActualsServiceImpl().getAllByInspectionId(lot.getMaterial().getMaterialCharacteristics()));%>
-60:             <td class="action-links">
-61: <%--             <c:if test="<%=new InspectionActualsServiceImpl().getAllByInspectionId(lot.getMaterial().getMaterialCharacteristics()).size()!=0%>">
-62:     	<a href="/inspection/actuals/<%=lot.getMaterial().getMaterialId()%>" class="btn btn-sm btn-info"><i class="bi bi-eye"></i>View Actuals</a>
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-02-10 21:24:49 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2024-02-10 21:24:55 - Application shutdown requested.
+2024-02-10 21:24:55 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:24:55 - HikariPool-3 - Shutdown initiated...
+2024-02-10 21:24:55 - HikariPool-3 - Shutdown completed.
+2024-02-10 21:25:04 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 22352 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 21:25:04 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 21:25:04 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 21:25:04 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 21:25:05 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 21:25:05 - Finished Spring Data repository scanning in 79 ms. Found 7 JPA repository interfaces.
+2024-02-10 21:25:06 - Tomcat initialized with port 8080 (http)
+2024-02-10 21:25:06 - Starting service [Tomcat]
+2024-02-10 21:25:06 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 21:25:06 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 21:25:06 - Initializing Spring embedded WebApplicationContext
+2024-02-10 21:25:06 - Root WebApplicationContext: initialization completed in 1687 ms
+2024-02-10 21:25:06 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 21:25:06 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 21:25:06 - HHH000026: Second-level cache disabled
+2024-02-10 21:25:07 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 21:25:07 - HikariPool-1 - Starting...
+2024-02-10 21:25:07 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@609d49f
+2024-02-10 21:25:07 - HikariPool-1 - Start completed.
+2024-02-10 21:25:08 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 21:25:08 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:25:09 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 21:25:09 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 21:25:09 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 21:25:09 - LiveReload server is running on port 35729
+2024-02-10 21:25:09 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 21:25:09 - Started MaterialInspectionApplication in 5.393 seconds (process running for 6.247)
+2024-02-10 21:25:10 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 21:25:10 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 21:25:10 - Completed initialization in 3 ms
+2024-02-10 21:29:31 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-02-10 21:29:31 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:29:31 - HikariPool-1 - Shutdown initiated...
+2024-02-10 21:29:31 - HikariPool-1 - Shutdown completed.
+2024-02-10 21:29:31 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 22352 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 21:29:31 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 21:29:31 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 21:29:31 - Finished Spring Data repository scanning in 20 ms. Found 7 JPA repository interfaces.
+2024-02-10 21:29:32 - Tomcat initialized with port 8080 (http)
+2024-02-10 21:29:32 - Starting service [Tomcat]
+2024-02-10 21:29:32 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 21:29:32 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 21:29:32 - Initializing Spring embedded WebApplicationContext
+2024-02-10 21:29:32 - Root WebApplicationContext: initialization completed in 425 ms
+2024-02-10 21:29:32 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 21:29:32 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 21:29:32 - HHH000026: Second-level cache disabled
+2024-02-10 21:29:32 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 21:29:32 - HikariPool-2 - Starting...
+2024-02-10 21:29:32 - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@109eed83
+2024-02-10 21:29:32 - HikariPool-2 - Start completed.
+2024-02-10 21:29:32 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 21:29:32 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:29:32 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 21:29:32 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 21:29:32 - LiveReload server is running on port 35729
+2024-02-10 21:29:32 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 21:29:32 - Started MaterialInspectionApplication in 1.17 seconds (process running for 269.406)
+2024-02-10 21:29:32 - Condition evaluation unchanged
+2024-02-10 21:29:33 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 21:29:33 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 21:29:33 - Completed initialization in 3 ms
+2024-02-10 21:30:37 - Application shutdown requested.
+2024-02-10 21:30:37 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:30:37 - HikariPool-2 - Shutdown initiated...
+2024-02-10 21:30:37 - HikariPool-2 - Shutdown completed.
+2024-02-10 21:39:02 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 6760 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
+2024-02-10 21:39:02 - No active profile set, falling back to 1 default profile: "default"
+2024-02-10 21:39:02 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-10 21:39:02 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-10 21:39:03 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-10 21:39:03 - Finished Spring Data repository scanning in 77 ms. Found 7 JPA repository interfaces.
+2024-02-10 21:39:04 - Tomcat initialized with port 8080 (http)
+2024-02-10 21:39:04 - Starting service [Tomcat]
+2024-02-10 21:39:04 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-10 21:39:04 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-02-10 21:39:04 - Initializing Spring embedded WebApplicationContext
+2024-02-10 21:39:04 - Root WebApplicationContext: initialization completed in 1745 ms
+2024-02-10 21:39:04 - Cannot deserialize session attribute [lots] for session [53C9100B31595B6A06259F7A8C00E400]
+2024-02-10 21:39:04 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-10 21:39:04 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-10 21:39:04 - HHH000026: Second-level cache disabled
+2024-02-10 21:39:05 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-10 21:39:05 - HikariPool-1 - Starting...
+2024-02-10 21:39:05 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@19f4ac28
+2024-02-10 21:39:05 - HikariPool-1 - Start completed.
+2024-02-10 21:39:06 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-10 21:39:06 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:39:07 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-10 21:39:07 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-10 21:39:07 - Adding welcome page: class path resource [static/index.html]
+2024-02-10 21:39:07 - LiveReload server is running on port 35729
+2024-02-10 21:39:07 - Tomcat started on port 8080 (http) with context path ''
+2024-02-10 21:39:07 - Started MaterialInspectionApplication in 5.306 seconds (process running for 6.197)
+2024-02-10 21:39:07 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-10 21:39:08 - Initializing Servlet 'dispatcherServlet'
+2024-02-10 21:39:08 - Completed initialization in 1 ms
+2024-02-10 21:39:30 - Servlet.service() for servlet [jsp] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [25] in the jsp file: [/jsp/edit-result.jsp]
+The method print(boolean) in the type JspWriter is not applicable for the arguments ()
+22:           </div>
+23:           <div class="card-body">
+24:             <form action="/lot/edit/<%=request.getParameter("lotId") %>" method="POST">
+25:     		<input type="text" hidden="hidden" name="userId" value="<%=%>"> 
+26:     		
+27:               <div class="form-group">
+28:                 <label for="materialDesc">Remarks:</label>
 
 
 Stacktrace:] with root cause
-java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsRepo.findAllByMaterialCharacteristics(java.util.List)" because "this.inspectionActualsRepo" is null
-	at com.zm.mi.service.impl.InspectionActualsServiceImpl.getAllByInspectionId(InspectionActualsServiceImpl.java:40)
-	at org.apache.jsp.jsp.show_002dlot_jsp._jspService(show_002dlot_jsp.java:209)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [25] in the jsp file: [/jsp/edit-result.jsp]
+The method print(boolean) in the type JspWriter is not applicable for the arguments ()
+22:           </div>
+23:           <div class="card-body">
+24:             <form action="/lot/edit/<%=request.getParameter("lotId") %>" method="POST">
+25:     		<input type="text" hidden="hidden" name="userId" value="<%=%>"> 
+26:     		
+27:               <div class="form-group">
+28:                 <label for="materialDesc">Remarks:</label>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
 	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
 	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
@@ -127,35 +526,6 @@ java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsR
 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:277)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
@@ -184,655 +554,7 @@ java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsR
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2024-02-08 00:02:43 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 21400 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 00:02:43 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 00:02:43 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-08 00:02:43 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-08 00:02:44 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 00:02:44 - Finished Spring Data repository scanning in 75 ms. Found 7 JPA repository interfaces.
-2024-02-08 00:02:45 - Tomcat initialized with port 8080 (http)
-2024-02-08 00:02:45 - Starting service [Tomcat]
-2024-02-08 00:02:45 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 00:02:45 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 00:02:45 - Initializing Spring embedded WebApplicationContext
-2024-02-08 00:02:45 - Root WebApplicationContext: initialization completed in 1561 ms
-2024-02-08 00:02:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 00:02:45 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-08 00:02:45 - HHH000026: Second-level cache disabled
-2024-02-08 00:02:45 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 00:02:45 - HikariPool-1 - Starting...
-2024-02-08 00:02:45 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70f908f2
-2024-02-08 00:02:45 - HikariPool-1 - Start completed.
-2024-02-08 00:02:47 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 00:02:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 00:02:57 - Servlet.service() for servlet [jsp] threw exception
-java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsRepo.findAllByMaterialCharacteristics(java.util.List)" because "this.inspectionActualsRepo" is null
-	at com.zm.mi.service.impl.InspectionActualsServiceImpl.getAllByInspectionId(InspectionActualsServiceImpl.java:40)
-	at org.apache.jsp.jsp.show_002dlot_jsp._jspService(show_002dlot_jsp.java:209)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:277)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-2024-02-08 00:02:57 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [An exception occurred processing [/jsp/show-lot.jsp] at line [59]
-
-56:             <td><%= lot.getPlant().getPlantName() %></td>
-57:             <td><%= lot.getVendor().getVendorName()%></td>
-58:             <td><%= lot.getMaterial().getMaterialDesc()%></td>
-59:             <% System.out.println(new InspectionActualsServiceImpl().getAllByInspectionId(lot.getMaterial().getMaterialCharacteristics()));%>
-60:             <td class="action-links">
-61: <%--             <c:if test="<%=new InspectionActualsServiceImpl().getAllByInspectionId(lot.getMaterial().getMaterialCharacteristics()).size()!=0%>">
-62:     	<a href="/inspection/actuals/<%=lot.getMaterial().getMaterialId()%>" class="btn btn-sm btn-info"><i class="bi bi-eye"></i>View Actuals</a>
-
-
-Stacktrace:] with root cause
-java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsRepo.findAllByMaterialCharacteristics(java.util.List)" because "this.inspectionActualsRepo" is null
-	at com.zm.mi.service.impl.InspectionActualsServiceImpl.getAllByInspectionId(InspectionActualsServiceImpl.java:40)
-	at org.apache.jsp.jsp.show_002dlot_jsp._jspService(show_002dlot_jsp.java:209)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:277)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-2024-02-08 00:03:22 - Servlet.service() for servlet [jsp] threw exception
-java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsRepo.findAllByMaterialCharacteristics(java.util.List)" because "this.inspectionActualsRepo" is null
-	at com.zm.mi.service.impl.InspectionActualsServiceImpl.getAllByInspectionId(InspectionActualsServiceImpl.java:40)
-	at org.apache.jsp.jsp.show_002dlot_jsp._jspService(show_002dlot_jsp.java:209)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:277)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-2024-02-08 00:03:22 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [An exception occurred processing [/jsp/show-lot.jsp] at line [59]
-
-56:             <td><%= lot.getPlant().getPlantName() %></td>
-57:             <td><%= lot.getVendor().getVendorName()%></td>
-58:             <td><%= lot.getMaterial().getMaterialDesc()%></td>
-59:             <% System.out.println(new InspectionActualsServiceImpl().getAllByInspectionId(lot.getMaterial().getMaterialCharacteristics()));%>
-60:             <td class="action-links">
-61: <%--             <c:if test="<%=new InspectionActualsServiceImpl().getAllByInspectionId(lot.getMaterial().getMaterialCharacteristics()).size()!=0%>">
-62:     	<a href="/inspection/actuals/<%=lot.getMaterial().getMaterialId()%>" class="btn btn-sm btn-info"><i class="bi bi-eye"></i>View Actuals</a>
-
-
-Stacktrace:] with root cause
-java.lang.NullPointerException: Cannot invoke "com.zm.mi.repo.InspectionActualsRepo.findAllByMaterialCharacteristics(java.util.List)" because "this.inspectionActualsRepo" is null
-	at com.zm.mi.service.impl.InspectionActualsServiceImpl.getAllByInspectionId(InspectionActualsServiceImpl.java:40)
-	at org.apache.jsp.jsp.show_002dlot_jsp._jspService(show_002dlot_jsp.java:209)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:642)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:277)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-2024-02-08 00:03:25 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-02-08 00:05:22 - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
-2024-02-08 00:05:22 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 00:05:22 - HikariPool-1 - Shutdown initiated...
-2024-02-08 00:05:22 - HikariPool-1 - Shutdown completed.
-2024-02-08 00:05:22 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 31264 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 00:05:22 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 00:05:22 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 00:05:22 - Finished Spring Data repository scanning in 22 ms. Found 7 JPA repository interfaces.
-2024-02-08 00:05:22 - Tomcat initialized with port 8080 (http)
-2024-02-08 00:05:22 - Starting service [Tomcat]
-2024-02-08 00:05:22 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 00:05:22 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 00:05:22 - Initializing Spring embedded WebApplicationContext
-2024-02-08 00:05:22 - Root WebApplicationContext: initialization completed in 386 ms
-2024-02-08 00:05:22 - Cannot deserialize session attribute [lots] for session [3324BBC3B795F47C9A7AD54ADDC1189D]
-2024-02-08 00:05:22 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 00:05:22 - HHH000026: Second-level cache disabled
-2024-02-08 00:05:22 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 00:05:22 - HikariPool-2 - Starting...
-2024-02-08 00:05:22 - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@6092fcff
-2024-02-08 00:05:22 - HikariPool-2 - Start completed.
-2024-02-08 00:05:22 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 00:05:22 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 00:05:22 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 00:05:22 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 00:05:23 - LiveReload server is running on port 35729
-2024-02-08 00:05:23 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 00:05:23 - Started MaterialInspectionApplication in 0.971 seconds (process running for 286.5)
-2024-02-08 00:05:23 - Condition evaluation unchanged
-2024-02-08 00:05:23 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 00:05:23 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 00:05:23 - Completed initialization in 5 ms
-2024-02-08 00:05:26 - Application shutdown requested.
-2024-02-08 00:05:26 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 00:05:26 - HikariPool-2 - Shutdown initiated...
-2024-02-08 00:05:26 - HikariPool-2 - Shutdown completed.
-2024-02-08 00:08:11 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 34564 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 00:08:11 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 00:08:11 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-08 00:08:11 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-08 00:08:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 00:08:12 - Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
-2024-02-08 00:08:13 - Tomcat initialized with port 8080 (http)
-2024-02-08 00:08:13 - Starting service [Tomcat]
-2024-02-08 00:08:13 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 00:08:13 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 00:08:13 - Initializing Spring embedded WebApplicationContext
-2024-02-08 00:08:13 - Root WebApplicationContext: initialization completed in 1414 ms
-2024-02-08 00:08:13 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 00:08:13 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-08 00:08:13 - HHH000026: Second-level cache disabled
-2024-02-08 00:08:13 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 00:08:13 - HikariPool-1 - Starting...
-2024-02-08 00:08:13 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5628237d
-2024-02-08 00:08:13 - HikariPool-1 - Start completed.
-2024-02-08 00:08:14 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 00:08:15 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 00:08:15 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-02-08 00:08:15 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 00:08:15 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 00:08:15 - LiveReload server is running on port 35729
-2024-02-08 00:08:15 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 00:08:15 - Started MaterialInspectionApplication in 4.506 seconds (process running for 5.293)
-2024-02-08 00:08:16 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 00:08:16 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 00:08:16 - Completed initialization in 1 ms
-2024-02-08 00:11:49 - Application shutdown requested.
-2024-02-08 00:11:49 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 00:11:49 - HikariPool-1 - Shutdown initiated...
-2024-02-08 00:11:49 - HikariPool-1 - Shutdown completed.
-2024-02-08 08:55:12 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 12768 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 08:55:12 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 08:55:12 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-08 08:55:12 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-08 08:55:14 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 08:55:15 - Finished Spring Data repository scanning in 236 ms. Found 7 JPA repository interfaces.
-2024-02-08 08:55:17 - Tomcat initialized with port 8080 (http)
-2024-02-08 08:55:17 - Starting service [Tomcat]
-2024-02-08 08:55:17 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 08:55:18 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 08:55:18 - Initializing Spring embedded WebApplicationContext
-2024-02-08 08:55:18 - Root WebApplicationContext: initialization completed in 5938 ms
-2024-02-08 08:55:18 - Cannot deserialize session attribute [lots] for session [3324BBC3B795F47C9A7AD54ADDC1189D]
-2024-02-08 08:55:19 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 08:55:19 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-08 08:55:19 - HHH000026: Second-level cache disabled
-2024-02-08 08:55:20 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 08:55:20 - HikariPool-1 - Starting...
-2024-02-08 08:55:21 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41c24e05
-2024-02-08 08:55:21 - HikariPool-1 - Start completed.
-2024-02-08 08:55:26 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 08:55:26 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 08:55:28 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-02-08 08:55:28 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 08:55:29 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 08:55:30 - LiveReload server is running on port 35729
-2024-02-08 08:55:30 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 08:55:30 - Started MaterialInspectionApplication in 19.895 seconds (process running for 39.424)
-2024-02-08 08:55:31 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 08:55:31 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 08:55:31 - Completed initialization in 5 ms
-2024-02-08 08:55:34 - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [137] milliseconds.
-2024-02-08 09:13:32 - Application shutdown requested.
-2024-02-08 09:13:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 09:13:32 - HikariPool-1 - Shutdown initiated...
-2024-02-08 09:13:32 - HikariPool-1 - Shutdown completed.
-2024-02-08 09:14:11 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 8220 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 09:14:11 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 09:14:11 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-08 09:14:11 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-08 09:14:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 09:14:12 - Finished Spring Data repository scanning in 79 ms. Found 7 JPA repository interfaces.
-2024-02-08 09:14:13 - Tomcat initialized with port 8080 (http)
-2024-02-08 09:14:13 - Starting service [Tomcat]
-2024-02-08 09:14:13 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 09:14:13 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 09:14:13 - Initializing Spring embedded WebApplicationContext
-2024-02-08 09:14:13 - Root WebApplicationContext: initialization completed in 1849 ms
-2024-02-08 09:14:13 - Cannot deserialize session attribute [lots] for session [A845C88AE5A5E1394B88B8EC72701A52]
-2024-02-08 09:14:13 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 09:14:14 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-08 09:14:14 - HHH000026: Second-level cache disabled
-2024-02-08 09:14:14 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 09:14:14 - HikariPool-1 - Starting...
-2024-02-08 09:14:14 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7030f573
-2024-02-08 09:14:14 - HikariPool-1 - Start completed.
-2024-02-08 09:14:16 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 09:14:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 09:14:16 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-02-08 09:14:16 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 09:14:16 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 09:14:17 - LiveReload server is running on port 35729
-2024-02-08 09:14:17 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 09:14:17 - Started MaterialInspectionApplication in 6.162 seconds (process running for 7.072)
-2024-02-08 09:14:17 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 09:14:17 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 09:14:17 - Completed initialization in 1 ms
-2024-02-08 09:19:00 - **** Request recieved by searchMaterial
-2024-02-08 09:19:00 - **** End of the method searchMaterial
-2024-02-08 09:38:35 - Application shutdown requested.
-2024-02-08 09:38:36 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 09:38:36 - HikariPool-1 - Shutdown initiated...
-2024-02-08 09:38:36 - HikariPool-1 - Shutdown completed.
-2024-02-08 14:03:14 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 14360 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 14:03:14 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 14:03:14 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-08 14:03:14 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-08 14:03:15 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 14:03:15 - Finished Spring Data repository scanning in 101 ms. Found 7 JPA repository interfaces.
-2024-02-08 14:03:16 - Tomcat initialized with port 8080 (http)
-2024-02-08 14:03:16 - Starting service [Tomcat]
-2024-02-08 14:03:16 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 14:03:16 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 14:03:16 - Initializing Spring embedded WebApplicationContext
-2024-02-08 14:03:16 - Root WebApplicationContext: initialization completed in 2006 ms
-2024-02-08 14:03:16 - Cannot deserialize session attribute [lots] for session [A845C88AE5A5E1394B88B8EC72701A52]
-2024-02-08 14:03:16 - Cannot deserialize session attribute [materials] for session [A845C88AE5A5E1394B88B8EC72701A52]
-2024-02-08 14:03:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 14:03:16 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-08 14:03:16 - HHH000026: Second-level cache disabled
-2024-02-08 14:03:17 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 14:03:17 - HikariPool-1 - Starting...
-2024-02-08 14:03:17 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@26120e2
-2024-02-08 14:03:17 - HikariPool-1 - Start completed.
-2024-02-08 14:03:19 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 14:03:19 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 14:03:20 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-02-08 14:03:20 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 14:03:20 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 14:03:20 - LiveReload server is running on port 35729
-2024-02-08 14:03:20 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 14:03:20 - Started MaterialInspectionApplication in 7.022 seconds (process running for 28.604)
-2024-02-08 14:03:21 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 14:03:21 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 14:03:21 - Completed initialization in 1 ms
-2024-02-08 14:03:38 - **** Request recieved by searchMaterial
-2024-02-08 14:03:38 - **** End of the method searchMaterial
-2024-02-08 14:08:01 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2024-02-08 14:08:01 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 14:08:01 - HikariPool-1 - Shutdown initiated...
-2024-02-08 14:08:01 - HikariPool-1 - Shutdown completed.
-2024-02-08 14:08:01 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 14360 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 14:08:01 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 14:08:02 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 14:08:02 - Finished Spring Data repository scanning in 26 ms. Found 7 JPA repository interfaces.
-2024-02-08 14:08:02 - Tomcat initialized with port 8080 (http)
-2024-02-08 14:08:02 - Starting service [Tomcat]
-2024-02-08 14:08:02 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 14:08:02 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 14:08:02 - Initializing Spring embedded WebApplicationContext
-2024-02-08 14:08:02 - Root WebApplicationContext: initialization completed in 464 ms
-2024-02-08 14:08:02 - Cannot deserialize session attribute [lots] for session [8DA59830ACAF36B3A2671AE0460D9584]
-2024-02-08 14:08:02 - Cannot deserialize session attribute [materials] for session [8DA59830ACAF36B3A2671AE0460D9584]
-2024-02-08 14:08:02 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 14:08:02 - HHH000026: Second-level cache disabled
-2024-02-08 14:08:02 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 14:08:02 - HikariPool-2 - Starting...
-2024-02-08 14:08:02 - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@33b89cc4
-2024-02-08 14:08:02 - HikariPool-2 - Start completed.
-2024-02-08 14:08:02 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 14:08:02 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 14:08:02 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 14:08:02 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 14:08:03 - LiveReload server is running on port 35729
-2024-02-08 14:08:03 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 14:08:03 - Started MaterialInspectionApplication in 1.212 seconds (process running for 310.94)
-2024-02-08 14:08:03 - Condition evaluation unchanged
-2024-02-08 14:08:03 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 14:08:03 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 14:08:03 - Completed initialization in 3 ms
-2024-02-08 14:10:24 - **** Request recieved by searchMaterial
-2024-02-08 14:10:24 - **** End of the method searchMaterial
-2024-02-08 14:10:53 - **** Request recieved by searchMaterial
-2024-02-08 14:10:53 - **** End of the method searchMaterial
-2024-02-08 15:09:31 - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=40m58s170ms757µs300ns).
-2024-02-08 15:20:10 - **** Request recieved by searchMaterial
-2024-02-08 15:20:10 - **** End of the method searchMaterial
-2024-02-08 15:32:58 - **** Request recieved by searchMaterial
-2024-02-08 15:32:58 - **** End of the method searchMaterial
-2024-02-08 15:33:32 - **** Request recieved by searchMaterial
-2024-02-08 15:33:32 - **** End of the method searchMaterial
-2024-02-08 15:36:43 - Application shutdown requested.
-2024-02-08 15:36:43 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 15:36:43 - HikariPool-2 - Shutdown initiated...
-2024-02-08 15:36:43 - HikariPool-2 - Shutdown completed.
-2024-02-08 15:38:14 - Starting MaterialInspectionApplication using Java 17.0.9 with PID 5408 (D:\sai-kumar\material-inspection\material-inspection-app\target\classes started by Kota Sai Kumar in D:\sai-kumar\material-inspection\material-inspection-app)
-2024-02-08 15:38:14 - No active profile set, falling back to 1 default profile: "default"
-2024-02-08 15:38:14 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-08 15:38:14 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-08 15:38:14 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-08 15:38:15 - Finished Spring Data repository scanning in 77 ms. Found 7 JPA repository interfaces.
-2024-02-08 15:38:15 - Tomcat initialized with port 8080 (http)
-2024-02-08 15:38:15 - Starting service [Tomcat]
-2024-02-08 15:38:15 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-08 15:38:15 - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-02-08 15:38:15 - Initializing Spring embedded WebApplicationContext
-2024-02-08 15:38:15 - Root WebApplicationContext: initialization completed in 1718 ms
-2024-02-08 15:38:15 - Cannot deserialize session attribute [lots] for session [20E25ED963A75D531DF62DCA863A1E77]
-2024-02-08 15:38:15 - Cannot deserialize session attribute [materials] for session [20E25ED963A75D531DF62DCA863A1E77]
-2024-02-08 15:38:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-08 15:38:16 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-08 15:38:16 - HHH000026: Second-level cache disabled
-2024-02-08 15:38:16 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-08 15:38:16 - HikariPool-1 - Starting...
-2024-02-08 15:38:16 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3271a9c1
-2024-02-08 15:38:16 - HikariPool-1 - Start completed.
-2024-02-08 15:38:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-08 15:38:17 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 15:38:18 - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-02-08 15:38:18 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-08 15:38:18 - Adding welcome page: class path resource [static/index.html]
-2024-02-08 15:38:18 - LiveReload server is running on port 35729
-2024-02-08 15:38:18 - Tomcat started on port 8080 (http) with context path ''
-2024-02-08 15:38:18 - Started MaterialInspectionApplication in 5.363 seconds (process running for 6.236)
-2024-02-08 15:38:19 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-08 15:38:19 - Initializing Servlet 'dispatcherServlet'
-2024-02-08 15:38:19 - Completed initialization in 0 ms
-2024-02-08 15:39:13 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IndexOutOfBoundsException: Index 4 out of bounds for length 1] with root cause
-java.lang.IndexOutOfBoundsException: Index 4 out of bounds for length 1
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at com.zm.mi.service.impl.InspectionActualsServiceImpl.getActualsAndExpected(InspectionActualsServiceImpl.java:67)
-	at com.zm.mi.controller.InspectionActualsController.viewActualsByMaterialId(InspectionActualsController.java:71)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:261)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:189)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-2024-02-08 15:42:36 - Application shutdown requested.
-2024-02-08 15:42:36 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-08 15:42:36 - HikariPool-1 - Shutdown initiated...
-2024-02-08 15:42:36 - HikariPool-1 - Shutdown completed.
+2024-02-10 21:41:20 - Application shutdown requested.
+2024-02-10 21:41:20 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-10 21:41:20 - HikariPool-1 - Shutdown initiated...
+2024-02-10 21:41:20 - HikariPool-1 - Shutdown completed.
