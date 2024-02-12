@@ -35,7 +35,12 @@
                 <label for="materialType">Material Type:</label>
                 <input type="text" class="form-control" id="materialType" name="materialType" required value="${material.getMaterialType()}">
               </div>
+               <div class="form-group">
+              <c:if test="${not empty materialAlreadyExists}">
+                  <span class="text-danger">${materialAlreadyExists}</span> 
+              </c:if>
               
+              </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>

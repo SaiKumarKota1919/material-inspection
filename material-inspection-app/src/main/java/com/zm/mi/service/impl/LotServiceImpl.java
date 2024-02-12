@@ -1,10 +1,13 @@
 package com.zm.mi.service.impl;
 
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.zm.mi.entity.InspectionActuals;
@@ -17,6 +20,7 @@ import com.zm.mi.repo.InspectionLotRepo;
 import com.zm.mi.serachcriteria.LotSearchCriteria;
 import com.zm.mi.service.InspectionActualsService;
 import com.zm.mi.service.LotService;
+import com.zm.mi.utils.StringDataUtils;
 @Service
 public class LotServiceImpl implements LotService
 {
@@ -24,7 +28,8 @@ public class LotServiceImpl implements LotService
 	private InspectionLotRepo lotRepo;
 	@Autowired
 	private InspectionActualsService inspectionActualsService;
-	
+	@Value("${lot.date.search.range}")
+	private Integer noOfDays; 
 	@Override
 	public void addLot(InspectionLot lot) {
 		
@@ -35,9 +40,33 @@ public class LotServiceImpl implements LotService
 	@Override
 	public List<InspectionLot> getLotsByLotSearchCriteria(LotSearchCriteria lotSearchCriteria) {
 		
-	 List<InspectionLot> lots =	lotRepo.findAllByCreatedOnBetween(lotSearchCriteria.getFromDate(), 
-			 														lotSearchCriteria.getToDate());
-		System.out.println(lots);
+		
+		
+		List<InspectionLot> lots = new ArrayList<>();
+		
+		if(lotSearchCriteria.getLotId()==null)
+		{
+			lotSearchCriteria.setMaterialId(StringDataUtils.normlaizeString(lotSearchCriteria.getMaterialId()).toUpperCase());
+			lotSearchCriteria.setPlantId(StringDataUtils.normlaizeString(lotSearchCriteria.getPlantId()).toUpperCase());
+			lots  =	lotRepo.findAllByCreatedOnBetween(lotSearchCriteria.getFromDate(), 
+						lotSearchCriteria.getToDate());
+		}
+	   
+		else {
+			
+			InspectionLot inspectionLot = lotRepo.findById(lotSearchCriteria.getLotId()).orElse(null);
+ 			
+			if(inspectionLot!=null)
+			{
+				lots.add(inspectionLot);
+			}
+		
+			
+			return lots;
+			
+		}
+		
+		
 		
 		
 		if(lotSearchCriteria.getLotId()!=null)
@@ -59,8 +88,27 @@ public class LotServiceImpl implements LotService
 		}
 		if(lotSearchCriteria.getStatus().length()!=0)
 		{
-			//lots = lots.stream().filter(lot->lot.getResult().equals(lotSearchCriteria.getStatus()))
-				//				.collect(Collectors.toList());
+			
+			
+			
+			if(lotSearchCriteria.getStatus().equals("UNDER PROCESS"))
+			{
+				System.out.println(lotSearchCriteria.getStatus());
+				
+				lots = lots.stream()
+					    .filter(lot -> lot.getResult() == null || lot.getResult().equals(lotSearchCriteria.getStatus()))
+					    .collect(Collectors.toList());
+				System.out.println(lots);
+			
+				
+				
+			}
+			else {
+				lots = lots.stream()
+					    .filter(lot -> lot.getResult() != null && lot.getResult().equals(lotSearchCriteria.getStatus()))
+					    .collect(Collectors.toList());
+			}
+			
 		}
 		
 		
@@ -139,6 +187,22 @@ public class LotServiceImpl implements LotService
 		
 		
 		return actualsAndExpected;
+	}
+
+	@Override
+	public boolean isValidDateRange(LotSearchCriteria lotSearchCriteria) {
+		
+		long diff = ChronoUnit.DAYS.between(lotSearchCriteria.getFromDate(), lotSearchCriteria.getToDate());
+		
+		
+		
+		if (diff<=noOfDays && diff>=0) {
+			
+			return true;
+			
+		}
+		
+		return false;
 	}
 
 }

@@ -70,16 +70,31 @@ public class LotController {
 	}
 	
 	@GetMapping("/search")
-	private String searchLot(@ModelAttribute LotSearchCriteria lotSearchCriteria,HttpSession session)
+	private String searchLot(@ModelAttribute LotSearchCriteria lotSearchCriteria,HttpSession session,
+								Model model)
 	{
 		
-		if(lotSearchCriteria.getFromDate()!=null)
-		{
 		
+		
+		
+		if(lotSearchCriteria.getFromDate()!=null || lotSearchCriteria.getLotId() !=null)
+		{
+			if(lotSearchCriteria.getFromDate()!=null && lotSearchCriteria.getToDate()!=null)
+			{
+				if(!lotService.isValidDateRange(lotSearchCriteria))
+				{
+					model.addAttribute("InvalidDateRange","Date range should not be more than 90 days");
+					
+					return ViewPageConstants.SEARCH_LOT_BY_RANGE;
+					
+				}
+				
+			}
 		 List<InspectionLot> lots = lotService.getLotsByLotSearchCriteria(lotSearchCriteria);
 		 session.setAttribute("lotSearchCriteria", lotSearchCriteria);
 		 session.setAttribute("lots", lots);
 		 session.setAttribute("inspectionActualsService", inspectionActualsService);
+		
 		}else {
 			
 			

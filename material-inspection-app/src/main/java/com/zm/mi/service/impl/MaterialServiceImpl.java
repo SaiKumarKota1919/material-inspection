@@ -2,6 +2,7 @@ package com.zm.mi.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,17 +40,35 @@ private MaterialRepo materialRepo;
 
 	@Override
 	public List<Material> searchMaterial(Material material) {
-		if(material.getMaterialId().isBlank() 
-				&& material.getMaterialDesc().isBlank() 
-				&& material.getMaterialType().isBlank())
+		
+		List<Material> materialList = materialRepo.findAll();
+		
+		if(!material.getMaterialDesc().isBlank())
 		{
-			return materialRepo.findAll();
+			materialList = materialList.stream().filter(mt->mt.getMaterialDesc()
+															  .contains(material.getMaterialDesc()))
+												.collect(Collectors.toList());
 			
+		}
+		if(!material.getMaterialId().isBlank())
+		{
+			materialList = materialList.stream().filter(mt->mt.getMaterialId()
+					  										.equals(StringDataUtils.normlaizeString(material.getMaterialId()).toUpperCase()))
+												.collect(Collectors.toList());
+		
+		}
+		if(!material.getMaterialType().isBlank())
+		{
+			
+			materialList = materialList.stream().filter(mt->mt.getMaterialType()
+																			.contains(StringDataUtils.normlaizeString(material.getMaterialType()).toLowerCase()))
+												.collect(Collectors.toList());
+															
 		}
 		
 
 		
-		return null;
+		return materialList;
 	}
 
 	@Override

@@ -1,0 +1,37 @@
+package com.zm.mi.model;
+public enum UnitsOfMeasurement {
+    // Length Units
+    METER("m"),
+    KILOMETER("km"),
+    CENTIMETER("cm"),
+    MILLIMETER("mm"),
+
+    // Mass Units
+    KILOGRAM("kg"),
+    GRAM("g"),
+    MILLIGRAM("mg"),
+
+    // Volume Units
+    LITER("L"),
+    MILLILITER("mL"),
+
+    // Time Units
+    SECOND("s"),
+    MINUTE("min"),
+    HOUR("h"),
+
+    // Other Units (Feel free to add more as needed)
+    CELSIUS("°C"),
+    FAHRENHEIT("°F");
+
+    private final String isoCode;
+
+   UnitsOfMeasurement(String isoCode) {
+        this.isoCode = isoCode;
+    }
+
+    public String getIsoCode() {
+        return isoCode;
+    }
+}
+

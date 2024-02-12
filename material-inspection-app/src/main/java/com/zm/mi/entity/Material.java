@@ -66,7 +66,6 @@ public class Material {
 
 	public List<MaterialCharacteristics> getMaterialCharacteristics() {
 		
-		System.out.println("get characters");
 		return materialCharacteristics;
 	}
 

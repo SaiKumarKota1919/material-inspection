@@ -1,0 +1,94 @@
+package com.zm.mi.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zm.mi.entity.Material;
+import com.zm.mi.repo.MaterialRepo;
+import com.zm.mi.service.MaterialService;
+import com.zm.mi.utils.StringDataUtils;
+@Service
+public class MaterialServiceImpl implements MaterialService{
+@Autowired
+private MaterialRepo materialRepo;
+	@Override
+	public void saveMaterial(Material material) {
+		material.setMaterialId(StringDataUtils.normlaizeString(material.getMaterialId()).toUpperCase());
+		material.setMaterialDesc(StringDataUtils.normlaizeString(material.getMaterialDesc()).toLowerCase());
+		
+		
+		materialRepo.save(material);
+		
+	}
+
+	@Override
+	public boolean isAlreadyExists(Material material) {
+	if(materialRepo.
+			findByMaterialIdOrMaterialDesc(StringDataUtils.normlaizeString(material.getMaterialId()).toUpperCase(),
+						StringDataUtils.normlaizeString(material.getMaterialDesc()).toLowerCase())==null)
+		{
+			return false;
+		}
+
+		
+		return true;
+	}
+
+	@Override
+	public List<Material> searchMaterial(Material material) {
+		
+		List<Material> materialList = materialRepo.findAll();
+		
+		if(!material.getMaterialDesc().isBlank())
+		{
+			materialList = materialList.stream().filter(mt->mt.getMaterialDesc()
+															  .contains(material.getMaterialDesc()))
+												.collect(Collectors.toList());
+			
+		}
+		if(!material.getMaterialId().isBlank())
+		{
+			materialList = materialList.stream().filter(mt->mt.getMaterialId()
+					  										.equals(StringDataUtils.normlaizeString(material.getMaterialId()).toUpperCase()))
+												.collect(Collectors.toList());
+		
+		}
+		if(!material.getMaterialType().isBlank())
+		{
+			
+		}
+		
+
+		
+		return materialList;
+	}
+
+	@Override
+	public Material getMaterialById(String materialId) {
+		
+	Optional<Material> material =	materialRepo.findById(materialId);
+		if(material.isPresent())
+		{
+			return material.get();
+		}
+		return null;
+	}
+
+	@Override
+	public void deleteMaterialById(String materialId) {
+
+		materialRepo.deleteById(materialId);
+		
+	}
+
+	@Override
+	public List<Material> getAllMaterials() {
+		
+		return materialRepo.findAll();
+	}
+
+}

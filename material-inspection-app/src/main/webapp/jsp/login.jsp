@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,11 @@
                 <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                 <input type="password" class="form-control" name="password" id="password" value="" required>
               </div>
-  
+               <div class="col-12">
+  				<c:if test="${not empty InvalidCredentials}">
+                  <span class="text-danger">${InvalidCredentials}</span> 
+              </c:if>
+              </div>
               <div class="col-12">
                 <div class="d-grid">
                   <button class="btn btn-lg btn-primary" type="submit">Log in now</button>

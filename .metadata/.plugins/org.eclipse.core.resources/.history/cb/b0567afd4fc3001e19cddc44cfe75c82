@@ -1,8 +1,0 @@
-package com.zm.mi.constants;
-
-public class ViewConstants {
-	
-	private static final HOME_PAGE="home";
-	
-
-}

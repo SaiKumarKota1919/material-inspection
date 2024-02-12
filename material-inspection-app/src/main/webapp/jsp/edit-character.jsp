@@ -1,3 +1,4 @@
+<%@page import="com.zm.mi.model.UnitsOfMeasurement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -47,9 +48,15 @@
 							<label for="unitsOfMsrmnt">Units of Measurement:</label> <select
 								class="form-control" name="unitsOfMsrmnt" required>
 								<option value="${character.unitsOfMsrmnt}">${character.unitsOfMsrmnt}</option>
-								<option value="cm">cm</option>
-								<option value="m">m</option>
-								<option value="mm">mm</option>
+								
+                        <%for(UnitsOfMeasurement unitsOfMeasurement : UnitsOfMeasurement.values())
+                        { %>
+                        	
+                        	 
+                       <option value="<%=unitsOfMeasurement.getIsoCode()%>"><%=unitsOfMeasurement.getIsoCode()%></option>
+                       
+                        	
+                     <%  }%>
 								<!-- Add more options as needed -->
 							</select>
 						</div>

@@ -1,3 +1,4 @@
+<%@page import="com.zm.mi.model.UnitsOfMeasurement"%>
 <%@page import="com.zm.mi.entity.MaterialCharacteristics"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -29,19 +30,30 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="upperTolLimit">Upper Tolerance Limit:</label>
-                        <input type="number" class="form-control" name="characteristicsList[0].upperTolLimit"  required>
+                        <input type="text" class="form-control" name="characteristicsList[0].upperTolLimit" 
+                        pattern="[0-9]*[.,]?[0-9]*" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="lowerTolLimit">Lower Tolerance Limit:</label>
-                        <input type="number" class="form-control" name="characteristicsList[0].lowerTolLimit" required>
+                        <input type="text" class="form-control" name="characteristicsList[0].lowerTolLimit" 
+                       pattern="[0-9]*[.,]?[0-9]*" required>
                     </div>
                     <div class="form-group col-md-3">
                     <label for="unitsOfMsrmnt">Units of Measurement:</label>
                    <select class="form-control" name="characteristicsList[0].unitsOfMsrmnt" required >
-                        <option value="">Select Unit</option>
-                       <option value="cm">cm</option>
-                        <option value="m">m</option>
-                        <option value="mm">mm</option>
+                   <option value="">Select Unit</option>
+                        <%for(UnitsOfMeasurement unitsOfMeasurement : UnitsOfMeasurement.values())
+                        { %>
+                        	
+                        	 
+                       <option value="<%=unitsOfMeasurement.getIsoCode()%>"><%=unitsOfMeasurement.getIsoCode()%></option>
+                       
+                        	
+                     <%  }%>
+                        
+                        
+                        
+                       
                         <!-- Add more options as needed -->
                     </select>
                 </div>
@@ -78,19 +90,24 @@
             '    </div>' +
             '    <div class="form-group col-md-3">' +
             '        <label for="upperTolLimit">Upper Tolerance Limit:</label>' +
-            '        <input type="number" class="form-control" name="characteristicsList[' + characteristicCount + '].upperTolLimit" required>' +
+            '        <input type="text" class="form-control" name="characteristicsList[' + characteristicCount + '].upperTolLimit" pattern="[0-9]*[.,]?[0-9]*" required>' +
             '    </div>' +
             '    <div class="form-group col-md-3">' +
             '        <label for="lowerTolLimit">Lower Tolerance Limit:</label>' +
-            '        <input type="number" class="form-control" name="characteristicsList[' + characteristicCount + '].lowerTolLimit" required>' +
+            '        <input type="text" class="form-control" name="characteristicsList[' + characteristicCount + '].lowerTolLimit" pattern="[0-9]*[.,]?[0-9]*" required>' +
             '    </div>' +
             '    <div class="form-group col-md-3">' +
             '        <label for="unitsOfMsrmnt">Units of Measurement:</label>' +
             '        <select class="form-control" name="characteristicsList[' + characteristicCount + '].unitsOfMsrmnt" required>' +
             '            <option value="">Select Unit</option>' +
-            '            <option value="cm">cm</option>' +
-            '            <option value="m">m</option>' +
-            '            <option value="mm">mm</option>' +
+            '            <%for(UnitsOfMeasurement unitsOfMeasurement : UnitsOfMeasurement.values()) 
+                    { %>                                                                         '+
+                        	
+                        	 
+              '         <option value="<%=unitsOfMeasurement.getIsoCode()%>"><%=unitsOfMeasurement.getIsoCode()%></option>'+
+                       
+                        	
+             '        <%  }%>' +
             '            <!-- Add more options as needed -->' +
             '        </select>' +
             '    </div>' +

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,12 @@
                 <label for="contact">Contact:</label>
                 <input type="text" class="form-control" id="vendorContact" name="vendorContact" placeholder="Enter Vendor Contact Number" required>
               </div>
+               <div class="form-group">
+              <c:if test="${not empty vendorAlreadyExists}">
+                  <span class="text-danger">${vendorAlreadyExists}</span> 
+              </c:if>
+              </div>
+              
               <div class="text-center">
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>

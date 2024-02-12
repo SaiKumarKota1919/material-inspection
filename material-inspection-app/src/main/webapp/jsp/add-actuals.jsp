@@ -31,7 +31,7 @@
 									required>
 									<option value="" disabled selected>Select Character</option>
 									<c:forEach items="${materialCharacters}" var="character">
-									<option value="${character.characterId}">${character.characterDesc}</option>
+									<option value="${character.characterId}">${character.characterDesc} </option>
 									</c:forEach>
 								</select>
 								<div class="invalid-feedback">Please select a material.</div>
@@ -51,7 +51,7 @@
 							<label for="fromDate" class="form-label">Overall Inspection Start Date:</label> <input
 						type="date" class="form-control" id="fromDate" name="startDate" required="required">
 						</c:if>
-						<c:if test="${fn:length(inspectionActuals) == fn:length(matChars)-1 }">
+						<c:if test="${fn:length(inspectionActuals) == fn:length(matChars)-1 && not empty inspectionActuals}">
 						<label for="fromDate" class="form-label">Overall Inspection End Date:</label> <input
 						type="date" class="form-control" id="fromDate" name="endDate" required="required">
 						</c:if>

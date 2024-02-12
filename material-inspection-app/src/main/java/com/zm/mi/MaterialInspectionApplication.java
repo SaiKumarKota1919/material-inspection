@@ -10,6 +10,8 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.event.EventListener;
 
+import jakarta.annotation.PostConstruct;
+
 
 @SpringBootApplication
 public class MaterialInspectionApplication {
@@ -20,12 +22,12 @@ public class MaterialInspectionApplication {
 		//openBrowser("http://localhost:8080");
 	}
 	//@EventListener(ApplicationReadyEvent.class)
-	 @EventListener(ApplicationStartedEvent.class)
-	
+	@EventListener(ApplicationStartedEvent.class)
+	//@PostConstruct
 	//@EventListener(ApplicationStartingEvent.class)
 	//@EventListener(ApplicationPreparedEvent.class)
 	//@EventListener(ApplicationFailedEvent.class)
-	private void openBrowser() {
+	public void openBrowser() {
 		
 		System.out.println("#### application ######");
         try {

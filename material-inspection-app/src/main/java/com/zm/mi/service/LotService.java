@@ -15,5 +15,7 @@ public interface LotService {
 	InspectionLot getLotById(Integer lotId);
 
 	ActualsAndExpected processInspection(InspectionLot inspectionLot);
+
+	boolean isValidDateRange(LotSearchCriteria lotSearchCriteria);
 	
 }

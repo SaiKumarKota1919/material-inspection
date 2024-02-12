@@ -52,7 +52,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownLot">
                     <a class="dropdown-item" href="/lot/form">Add</a>
                      <a class="dropdown-item" href="/jsp/search-lot-range.jsp">search by date range</a>
-                      <a class="dropdown-item" href="/jsp/search-lot-id.jsp">search by lot id</a>
+                      <a class="dropdown-item" href="/jsp/lot-search-id.jsp">search by lot id</a>
                     
                   	
                 </div>

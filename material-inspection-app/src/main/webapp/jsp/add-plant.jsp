@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +24,7 @@
                 <label for="plantId">Plant ID:</label>
                 <input type="text" class="form-control" id="plantId" name="plantId" autofocus="autofocus" required>
               </div>
+              
               <div class="form-group">
                 <label for="plantName">Plant Name:</label>
                 <input type="text" class="form-control" id="plantName" name="plantName" required>
@@ -37,7 +39,13 @@
               </div>
               <div class="form-group">
                 <label for="contact">Contact:</label>
-                <input type="text" class="form-control" id="contact" name="contact" required>
+                <input type="text" class="form-control" id="contact" name="plantContanctNo" required>
+              </div>
+              <div class="form-group">
+              <c:if test="${not empty plantAlreadyExists}">
+                  <span class="text-danger">${plantAlreadyExists}</span> 
+              </c:if>
+              
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>

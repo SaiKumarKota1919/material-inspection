@@ -33,6 +33,10 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 <div class="container mt-4">
   
+
+  
+  <c:if test="${not empty lots}">
+  
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -75,6 +79,14 @@
       <% } %>
     </tbody>
   </table>
+  </c:if>
+  
+  <c:if test="${empty lots}">
+  <span class="text-danger">
+  <b>NO records found</b>
+  </span>
+  
+  </c:if>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

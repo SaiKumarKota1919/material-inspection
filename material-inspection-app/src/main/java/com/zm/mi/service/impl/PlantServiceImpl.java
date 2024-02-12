@@ -17,6 +17,8 @@ public class PlantServiceImpl implements PlantService {
 private PlantRepo plantRepo;
 	@Override
 	public boolean isAlreadyExists(Plant plant) {
+		
+		plant.setPlantId(StringDataUtils.normlaizeString(plant.getPlantId()).toUpperCase());
 		if(plantRepo.findById(plant.getPlantId()).isPresent())
 		{
 			return true;

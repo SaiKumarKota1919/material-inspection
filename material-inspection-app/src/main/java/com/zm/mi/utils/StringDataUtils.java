@@ -11,6 +11,10 @@ public class StringDataUtils {
 			return string.trim().replaceAll(MULTIPLE_SPACE_REGX, SINGLE_SPACE_REGX);
 
 		}
+		if(string.length()==0)
+		{
+			return "";
+		}
 
 		return null;
 	}

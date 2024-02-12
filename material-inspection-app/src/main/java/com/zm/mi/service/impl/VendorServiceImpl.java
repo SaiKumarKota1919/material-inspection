@@ -18,6 +18,10 @@ private VendorRepo vendorRepo;
 	
 	@Override
 	public boolean isAlreadyExists(Vendor vendor) {
+			
+		vendor.setVendorName(StringDataUtils.normlaizeString(vendor.getVendorName().toLowerCase()));
+		
+		
 		if(vendorRepo.findByVendorName(vendor.getVendorName())!=null)
 		{
 			return true;
@@ -30,7 +34,6 @@ private VendorRepo vendorRepo;
 		
 		vendor.setVendorLocation(StringDataUtils.normlaizeString(vendor.getVendorLocation().toLowerCase()));
 		vendor.setVendorName(StringDataUtils.normlaizeString(vendor.getVendorName()).toLowerCase());
-		System.out.println(vendor);
 		vendorRepo.save(vendor);
 		
 	}

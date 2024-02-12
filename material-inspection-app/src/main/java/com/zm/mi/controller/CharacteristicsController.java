@@ -55,7 +55,6 @@ public class CharacteristicsController {
     
     {
         List<MaterialCharacteristics> characteristicsList = characteristicsForm.getCharacteristicsList();
-        System.out.println(characteristicsList);
         redirectAttributes.addFlashAttribute("material", session.getAttribute("materialSearchCriteria"));
       
         for(MaterialCharacteristics materialCharacteristics : characteristicsList)
@@ -65,7 +64,6 @@ public class CharacteristicsController {
         	
         }
         characteristicsService.addAllCharacteristics(characteristicsList);
-      System.out.println(characteristicsList);
         
         return ViewPageConstants.REDIRECT_SHOW_MATERIAL; 
     }
@@ -75,7 +73,6 @@ public class CharacteristicsController {
     {
     	
     	MaterialCharacteristics materialCharacteristics = characteristicsService.getCharacterByid(characterId);
-    	System.out.println(materialCharacteristics);
     	model.addAttribute("character",materialCharacteristics);
     	
     	return ViewPageConstants.EDIT_CHARACTER;
